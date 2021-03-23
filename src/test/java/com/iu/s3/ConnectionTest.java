@@ -19,6 +19,11 @@ public class ConnectionTest extends MyAbstractTest {
 	
 	@Test
 	public void connectionTest() throws Exception{
+		
+		//primitive type, String
+		//assertEquals(0,0)
+		
+		//reference type
 		assertNotNull(sqlSession);
 	}
 	
