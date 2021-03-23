@@ -13,12 +13,21 @@ public class ConnectionTest extends MyAbstractTest {
 
 	@Autowired
 	private DataSource dataSource;
+<<<<<<< HEAD
 	//Main branch test
+=======
+	//Member test
+>>>>>>> Member
 	@Autowired
 	private SqlSession sqlSession;
 	
 	@Test
 	public void connectionTest() throws Exception{
+		
+		//primitive type, String
+		//assertEquals(0,0)
+		
+		//reference type
 		assertNotNull(sqlSession);
 	}
 	
