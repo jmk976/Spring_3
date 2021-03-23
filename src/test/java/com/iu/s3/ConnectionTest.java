@@ -13,7 +13,7 @@ public class ConnectionTest extends MyAbstractTest {
 
 	@Autowired
 	private DataSource dataSource;
-	
+	//Main branch test
 	@Autowired
 	private SqlSession sqlSession;
 	
