@@ -3,11 +3,13 @@ package com.iu.s3.bankbook;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.s3.MyAbstractTest;
 
 public class BankBookDAOTest extends MyAbstractTest{
 
+	@Autowired
 	private BankBookDAO bankBookDAO;
 	
 	@Test
