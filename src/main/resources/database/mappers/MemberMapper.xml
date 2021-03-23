@@ -6,6 +6,11 @@
     
 <mapper namespace="com.iu.s3.member.MemberDAO">
 
+	<insert id="memberJoin" parameterType="com.iu.s3.member.MemberDTO">
+	insert into member(id, pw, name, phone, email) values(#{id},#{pw},#{name}, #{phone},#{email})
+	</insert>
+
+
 	<select id="memberLogin" parameterType="com.iu.s3.member.MemberDTO" resultType="com.iu.s3.member.MemberDTO">
 	 select * from member where id=#{id} and pw=#{pw}
 	</select>
