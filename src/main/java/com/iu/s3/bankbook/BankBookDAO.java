@@ -31,8 +31,8 @@ public class BankBookDAO {
     	
     	
     public BankBookDTO getSelect(BankBookDTO bankBookDTO) throws Exception{
-    	long num = 1L;
-    	bankBookDTO = sqlSession.selectOne(NAMESPACE+"getSelect", num);
+    	//long num = 1L;   bankBookDTO 부분num 으로 넣기 가
+    	bankBookDTO = sqlSession.selectOne(NAMESPACE+".getSelect", bankBookDTO);
         
         return bankBookDTO;
 
@@ -43,13 +43,9 @@ public class BankBookDAO {
     	
 
     	
-      public List getList() throws Exception {
+      public List<BankBookDTO> getList() throws Exception {
     	  
+    	 return sqlSession.selectList(NAMESPACE+".getList");
     	  
-    		ArrayList<BankBookDTO> ar = new ArrayList();
-    		
-    	   
-    	    
-    	    return ar;
       }
 }

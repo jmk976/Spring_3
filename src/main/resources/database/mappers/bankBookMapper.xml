@@ -9,7 +9,12 @@
 		insert into bankbook values(bank_seq.nextval, #{bookname},#{bookrate},#{booksale})
 	</insert>
 	
-	<select id="getSelect" parameterType="java.lang.Long" resultType="com.iu.s3.bankbook.BankBookDTO">
-		select * from bankbook where booknumber=#{num}
+	<select id="getSelect" parameterType="com.iu.s3.bankbook.BankBookDTO" resultType="com.iu.s3.bankbook.BankBookDTO">
+		select * from bankbook where booknumber=#{booknumber}
+	</select>
+	
+	<select id="getList" resultType="com.iu.s3.bankbook.BankBookDTO"> 
+		select * from bankbook order by booknumber desc
 	</select>
 </mapper>
+
