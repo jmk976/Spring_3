@@ -6,6 +6,10 @@
     
 <mapper namespace="com.iu.s3.member.MemberDAO">
 
+	<select id="memberDelete" parameterType="com.iu.s3.member.MemberDTO">
+		delete member where id = #{id}
+	</select>
+
 	<insert id="memberJoin" parameterType="com.iu.s3.member.MemberDTO">
 	insert into member(id, pw, name, phone, email) values(#{id},#{pw},#{name}, #{phone},#{email})
 	</insert>

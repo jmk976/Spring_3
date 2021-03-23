@@ -22,28 +22,24 @@ public class MemberDAO {
 //		//id 를 제외하고 나머지를 수정  
 //	}
 //	
-//	public int memberDelete(MemberDTO memberDTO)throws Exception{
-//		
-//	}
+	public int memberDelete(MemberDTO memberDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+".memberDelete", memberDTO);
+	}
 	
 	//memberJoin 데이터를 받아서 Db에 insert하는 메서드
 	
 	public int memberJoin(MemberDTO memberDTO) throws Exception {
 		int result = sqlSession.insert(NAMESPACE+".memberJoin", memberDTO);
-	
+
 		
 		return result;
-		
-		
 	}
 	
 	//login -id pw 를 받아서 조회
 	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception{
 		
 		
-		
-		return sqlSession.selectOne(NAMESPACE+".memberLogin", memberDTO);
-		
+		return sqlSession.selectOne(NAMESPACE+".memberLogin", memberDTO);	
 	}
 
 }

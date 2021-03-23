@@ -13,6 +13,15 @@ public class MemberDAOTest extends MyAbstractTest {
 	private MemberDAO memberDAO;
 	
 	@Test
+	public void memberDelete() throws Exception {
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("id13");
+		int result = memberDAO.memberDelete(memberDTO);
+		
+		assertEquals(1, result);
+	}
+	
+	//@Test
 	public void memberJoinTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id13");
@@ -26,7 +35,7 @@ public class MemberDAOTest extends MyAbstractTest {
 		assertEquals(1, result);
 	}
 	
-	@Test
+	//@Test
 	public void memberLoginTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("iu");
