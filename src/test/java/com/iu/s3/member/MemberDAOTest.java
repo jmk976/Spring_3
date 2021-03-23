@@ -20,7 +20,7 @@ public class MemberDAOTest extends MyAbstractTest {
 		
 		memberDTO = memberDAO.memberLogin(memberDTO);
 		
-		memberDTO.setEmail("love@iu.com");
+		memberDTO.setEmail("love@naver.com");
 		
 		int result = memberDAO.memberUpdate(memberDTO);
 		
@@ -29,7 +29,7 @@ public class MemberDAOTest extends MyAbstractTest {
 	}
 	
 	
-	@Test
+	//@Test
 	public void memberDelete() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id10");
@@ -52,7 +52,7 @@ public class MemberDAOTest extends MyAbstractTest {
 		assertEquals(1, result);
 	}
 	
-	//@Test
+	@Test
 	public void memberLoginTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("iu");
