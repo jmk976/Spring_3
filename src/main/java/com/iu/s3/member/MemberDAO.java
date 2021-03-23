@@ -16,6 +16,7 @@ public class MemberDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
+	
 	private final String NAMESPACE="com.iu.s3.member.MemberDAO";
 	
 	public int memberUpdate(MemberDTO memberDTO)throws Exception{

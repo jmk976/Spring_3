@@ -12,7 +12,7 @@ public class MemberDAOTest extends MyAbstractTest {
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	@Test
+	//@Test
 	public void memberUpdate() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id11");
@@ -29,10 +29,10 @@ public class MemberDAOTest extends MyAbstractTest {
 	}
 	
 	
-	//@Test
+	@Test
 	public void memberDelete() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("id13");
+		memberDTO.setId("id10");
 		int result = memberDAO.memberDelete(memberDTO);
 		
 		assertEquals(1, result);
@@ -57,6 +57,7 @@ public class MemberDAOTest extends MyAbstractTest {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("iu");
 		memberDTO.setPw("pw1");
+		memberDTO = memberDAO.memberLogin(memberDTO);
 		
 		assertNotNull(memberDTO);
 		
