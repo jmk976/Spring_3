@@ -13,6 +13,12 @@ public class BankBookDAOTest extends MyAbstractTest{
 	private BankBookDAO bankBookDAO;
 	
 	@Test
+	public void getSelectTest()throws Exception{
+		BankBookDTO bankBookDTO = bankBookDAO.getSelect(null);
+		assertNotNull(bankBookDTO);
+	}
+	
+	@Test
 	public void setWriteTest() throws Exception {
 		BankBookDTO bankBookDTO = new BankBookDTO();
 		bankBookDTO.setBookname("Test");

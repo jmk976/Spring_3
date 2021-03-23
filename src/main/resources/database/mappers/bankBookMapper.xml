@@ -8,4 +8,8 @@
 	<insert id="setWrite" parameterType="com.iu.s3.bankbook.BankBookDTO">
 		insert into bankbook values(bank_seq.nextval, #{bookname},#{bookrate},#{booksale})
 	</insert>
+	
+	<select id="getSelect" parameterType="java.lang.Long" resultType="com.iu.s3.bankbook.BankBookDTO">
+		select * from bankbook where booknumber=#{num}
+	</select>
 </mapper>
