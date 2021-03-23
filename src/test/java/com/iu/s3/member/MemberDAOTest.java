@@ -13,6 +13,23 @@ public class MemberDAOTest extends MyAbstractTest {
 	private MemberDAO memberDAO;
 	
 	@Test
+	public void memberUpdate() throws Exception {
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("id11");
+		memberDTO.setPw("pw11");
+		
+		memberDTO = memberDAO.memberLogin(memberDTO);
+		
+		memberDTO.setEmail("love@iu.com");
+		
+		int result = memberDAO.memberUpdate(memberDTO);
+		
+		
+		assertEquals(1, result);
+	}
+	
+	
+	//@Test
 	public void memberDelete() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id13");

@@ -18,10 +18,11 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.iu.s3.member.MemberDAO";
 	
-//	public int memberUpdate(MemberDTO memberDTO)throws Exception{
-//		//id 를 제외하고 나머지를 수정  
-//	}
-//	
+	public int memberUpdate(MemberDTO memberDTO)throws Exception{
+		//id 를 제외하고 나머지를 수정  (id, pw를 둘다 입력해야 수정가능..) 
+		return sqlSession.update(NAMESPACE+".memberUpdate", memberDTO);
+	}
+	
 	public int memberDelete(MemberDTO memberDTO)throws Exception{
 		return sqlSession.delete(NAMESPACE+".memberDelete", memberDTO);
 	}
