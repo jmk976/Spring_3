@@ -18,13 +18,13 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.iu.s3.member.MemberDAO";
 	
-	public int memberUpdate(MemberDTO memberDTO)throws Exception{
-		//id 를 제외하고 나머지를 수정  
-	}
-	
-	public int memberDelete(MemberDTO memberDTO)throws Exception{
-		
-	}
+//	public int memberUpdate(MemberDTO memberDTO)throws Exception{
+//		//id 를 제외하고 나머지를 수정  
+//	}
+//	
+//	public int memberDelete(MemberDTO memberDTO)throws Exception{
+//		
+//	}
 	
 	//memberJoin 데이터를 받아서 Db에 insert하는 메서드
 	
