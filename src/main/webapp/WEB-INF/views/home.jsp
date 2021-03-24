@@ -14,5 +14,8 @@
 <a href="./bankbook/bankbookList"> BankBook List</a>
 <a href="./member/memberJoin">Join</a>
 <a href="./member/memberLogin">Login</a>
+
+<a href="./member/memberPage">My Page</a>
+<a href="./member/memberLogout">Log out</a>
 </body>
 </html>
