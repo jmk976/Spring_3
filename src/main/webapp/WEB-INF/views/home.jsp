@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+
 <html>
 <head>
 	<title>Home</title>
@@ -12,10 +12,17 @@
 <P>  The time on the server is ${serverTime}. </P>
 
 <a href="./bankbook/bankbookList"> BankBook List</a>
+
+<c:if test="${empty member}">
 <a href="./member/memberJoin">Join</a>
 <a href="./member/memberLogin">Login</a>
+</c:if>
 
+<c:if test="${not empty member}">
 <a href="./member/memberPage">My Page</a>
 <a href="./member/memberLogout">Log out</a>
+</c:if>
+
+
 </body>
 </html>

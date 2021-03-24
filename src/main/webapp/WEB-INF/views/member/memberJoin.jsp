@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Member Join Page</h1>
-	 <form action="../memberJoin" method="post">
+	 <form action="memberJoin" method="post">
 	 ID: <input type="text" name="id"> <br>
 	 PW: <input type="password" name="pw"> <br>
 	 NAME: <input type="text" name="name"> <br>
