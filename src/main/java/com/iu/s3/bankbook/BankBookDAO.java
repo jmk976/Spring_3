@@ -44,8 +44,11 @@ public class BankBookDAO {
     	
     public BankBookDTO getSelect(BankBookDTO bankBookDTO) throws Exception{
     	//long num = 1L;   bankBookDTO 부분num 으로 넣기 가
+    	
+    	System.out.println("select service");
     	bankBookDTO = sqlSession.selectOne(NAMESPACE+".getSelect", bankBookDTO);
         
+    	System.out.println(bankBookDTO.getBooknumber());
         return bankBookDTO;
 
     	

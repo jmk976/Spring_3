@@ -22,8 +22,8 @@
 		select * from bankbook order by booknumber desc
 	</select>
 	
-	<select id="setDelete" parameterType="com.iu.s3.bankbook.BankBookDTO">
+	<delete id="setDelete" parameterType="com.iu.s3.bankbook.BankBookDTO">
 		delete bankbook where booknumber = #{booknumber}
-	</select>
+	</delete>
 </mapper>
 
