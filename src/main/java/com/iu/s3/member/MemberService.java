@@ -11,7 +11,11 @@ class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	public int memberDelete(MemberDTO memberDTO)throws Exception{
+	public int memberUpdate(MemberDTO memberDTO) throws Exception{
+		return memberDAO.memberUpdate(memberDTO);
+	}
+	
+	public int memberDelete (MemberDTO memberDTO)throws Exception{
 		return memberDAO.memberDelete(memberDTO);
 	}
 	

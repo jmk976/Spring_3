@@ -33,8 +33,9 @@ MemberPage
 	
 	</table>
 	
-	<a href="./memberUpdate">수정 </a>
+	<a href="./memberUpdate">수정</a>
 	<a href="./memberDelete">탈퇴</a>
+	<a href="../"> 홈으로 가기</a>
 
 
 
