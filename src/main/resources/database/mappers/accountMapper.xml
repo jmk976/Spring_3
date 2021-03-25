@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    
+    <mapper namespace="com.iu.s3.account.AccountDAO">
+    
+    <select id="getList" parameterType="com.iu.s3.account.AccountDTO">
+    select * from account where id = #{id};
+    </select>
+    
+    
+    <insert id="setInsert" parameterType="com.iu.s3.account.AccountDTO">
+     insert into account (accountnumber, accountbalance, accountdate, id, booknumber) values(#{accountnumber}, #{accountbalance}, #{accountdate}, #{id}, #{booknumber})
+    </insert>
+    
+    </mapper>
