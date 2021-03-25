@@ -31,11 +31,10 @@ MemberPage
 			 <td>${member.email}</td>
 			</tr>
 	
-	
-		
-		
-			
 	</table>
+	
+	
+	<a href="./memberDelete">탈퇴</a>
 
 
 
