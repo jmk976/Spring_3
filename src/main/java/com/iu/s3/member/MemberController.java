@@ -17,6 +17,11 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@RequestMapping("memberPage")
+	public void memberPage() {
+		
+	}
+	
 	@RequestMapping("memberLogout")
 	public String memberLogout(HttpSession session) throws Exception {
 		session.invalidate(); //session유지 시간 0으로 만들기 

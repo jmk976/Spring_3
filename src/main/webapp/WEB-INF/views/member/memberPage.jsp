@@ -8,5 +8,38 @@
 </head>
 <body>
 MemberPage
+
+<table>
+
+			<tr>
+			 <td>Id : </td>
+			 <td>${member.id}</td>
+			</tr>
+			
+			<tr>
+			 <td>Name : </td>
+			 <td>${member.name}</td>
+			</tr>
+			
+			<tr>
+			 <td>Phone : </td>
+			 <td>${member.phone}</td>
+			</tr>
+			
+			<tr>
+			 <td>E-mail : </td>
+			 <td>${member.email}</td>
+			</tr>
+	
+	
+		
+		
+			
+	</table>
+
+
+
+
+
 </body>
 </html>
