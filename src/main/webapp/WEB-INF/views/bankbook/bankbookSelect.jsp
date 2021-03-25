@@ -13,6 +13,8 @@
 	<h3>Name : ${dto.bookname}</h3>
 	<h3>Number : ${dto.booknumber}</h3>
 	
+	<a href="../account/accountAdd">계좌개설</a>
+	
 	
 	<%-- <c:if test="${not empty member and member.id eq 'admin'}"> 
 	<a href="./bankbookDelete?booknumber=${dto.booknumber}">DELETE</a>

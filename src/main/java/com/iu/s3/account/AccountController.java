@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -16,9 +17,13 @@ public class AccountController {
     private AccountService accountService;
 	
 	@RequestMapping("accountList")
-	public void getList(ModelAndView modelAndView) {
+	public void getList() throws Exception {}
 		
-		List<AccountDTO> ar = accountService.getList();
+	
+	@RequestMapping(value="accountList", method=RequestMethod.POST)
+	public void getList(ModelAndView modelAndView,AccountDTO accountDTO) throws Exception {
+		
+		List<AccountDTO> ar = accountService.getList(accountDTO);
 		modelAndView.addObject("list", ar);
 		
 	}
