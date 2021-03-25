@@ -18,10 +18,7 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@RequestMapping(value="memberUpdate")
-	public MemberDTO memberUpdate (HttpSession session)throws Exception{
-		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
-		
-		return memberDTO;
+	public void memberUpdate ()throws Exception{
 	}
 	
 	
@@ -29,7 +26,11 @@ public class MemberController {
 	public String memberUpdate(MemberDTO memberDTO,HttpSession session)throws Exception{
 		
 		int result = memberService.memberUpdate(memberDTO);
-		session.setAttribute("member", memberDTO);
+		
+		
+		if(result>0) {
+			session.setAttribute("member", memberDTO);
+		}
 
 		
 		return "redirect:../";
