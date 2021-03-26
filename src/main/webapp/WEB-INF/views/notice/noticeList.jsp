@@ -22,7 +22,7 @@
 	<div class="container">
 
 
-	<h2>BankBook List</h2>
+	<h2>NOTICE List</h2>
 	
 	
 	
@@ -55,7 +55,7 @@
 		</tbody>
 	</table>
 	
-	</div>
+	</div> 
 		
 
 </body>
