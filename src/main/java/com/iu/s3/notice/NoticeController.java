@@ -2,6 +2,8 @@ package com.iu.s3.notice;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,27 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
+	
+	@RequestMapping("noticeUpdate")
+	public void setUpdate(NoticeDTO noticeDTO, HttpSession session)throws Exception{
+		noticeDTO = noticeService.getSelect(noticeDTO);
+		System.out.println(noticeDTO.getNum());
+		session.setAttribute("notice", noticeDTO);
+	}
+	
+	@RequestMapping(value = "noticeUpdate", method=RequestMethod.POST)
+	public String setUpdate(HttpSession session)throws Exception{
+		NoticeDTO noticeDTO = (NoticeDTO)session.getAttribute("notice");
+		System.out.println(noticeDTO.getNum());
+		System.out.println(noticeDTO.getTitle());
+		
+		int result = noticeService.setUpdate(noticeDTO);
+		System.out.println(noticeDTO.getNum());
+		System.out.println(noticeDTO.getTitle());
+		
+		return "redirect:./noticeList";
+	}
+	
 	
 	@RequestMapping("noticeInsert")
 	public void setInsert()throws Exception{
