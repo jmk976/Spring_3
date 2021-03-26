@@ -18,6 +18,7 @@ public class NoticeDAOTest extends MyAbstractTest {
 	public void getListTest() throws Exception{
 		List<NoticeDTO> ar = noticeDAO.getList();
 		
+		System.out.println(ar.size());
 		assertNotEquals(0, ar.size());
 		 
 	}

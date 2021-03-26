@@ -46,6 +46,7 @@
 				<td>${dto.bookrate}</td>
 				<td>${dto.booksale}</td>
 			
+			
 			</tr>
 		</c:forEach>
 		</tbody>
