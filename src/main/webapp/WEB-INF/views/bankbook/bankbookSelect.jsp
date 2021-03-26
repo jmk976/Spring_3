@@ -6,14 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../template/bootStrap.jsp"></c:import>
 </head>
 <body>
+
+<c:import url="../template/header.jsp"></c:import>
 	<h1>BankBook Select Page</h1>
 	
 	<h3>Name : ${dto.bookname}</h3>
 	<h3>Number : ${dto.booknumber}</h3>
 	
-	<a href="../account/accountAdd">계좌개설</a>
+	<a href="../account/accountAdd?booknumber=${dto.booknumber}">계좌개설</a>
 	
 	
 	<%-- <c:if test="${not empty member and member.id eq 'admin'}"> 

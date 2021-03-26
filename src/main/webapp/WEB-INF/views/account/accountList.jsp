@@ -16,20 +16,22 @@
 	<table>
 		<thead>
 			<tr>
-			 <th>Booknumber</th>
-			 <th>Account Number</th>
-			 <th>Account Balance</th>
-			  <th>Account Date</th>
+			
+			 <th>계좌번호</th>
+			 <th>개설일</th>
+			 <th>잔액</th>
+			
 			</tr>
 		</thead>
 		
 		<tbody>
-		<c:forEach items="${list}" var="ar"> 
+		<c:forEach items="${list}" var="account"> 
 			<tr>
-				<td><c:out value="${ar.booknumber}"/></td>
-				<td>${ar.accountnumber}</td>
-				<td>${ar.accountbalance}</td>
-				<td>${ar.accountdate}</td>
+				
+				<td>${account.accountnumber}</td>
+				<td>${account.accountdate}</td>
+				<td>${account.accountbalance}</td>
+				
 			
 			</tr>
 		</c:forEach>
