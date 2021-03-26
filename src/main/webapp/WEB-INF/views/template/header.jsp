@@ -10,7 +10,7 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="${pageContext.request.contextPath}/bankbook/bankbookList"> BankBook </a> 
+      <a class="nav-link" href="${pageContext.request.contextPath}/bankbook/bankbookList"> Product </a> 
     </li>
     
     <c:if test="${empty member}">
@@ -35,10 +35,10 @@
     <!-- Dropdown -->
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Dropdown link
+        BOARD
       </a>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="${pageContext.request.contextPath}/bankbook/bankbookList">Product</a>
+        <a class="dropdown-item" href="${pageContext.request.contextPath}/notice/">Notice</a>
         <a class="dropdown-item" href="#">Login</a>
         <a class="dropdown-item" href="#">Link 3</a>
       </div>

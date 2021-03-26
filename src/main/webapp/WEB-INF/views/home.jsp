@@ -18,7 +18,7 @@
   
   	
   
-		  <h1> Home Page</h1>
+	
 		  <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4">
@@ -58,7 +58,72 @@
       <p>Some text..</p>
       <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
     </div>
+		<div class="jumbotron text-center" style="mrargin-bottom:0">
+		<p>Footer</p>
+		
+		</div>    
 		    
+		    <!-- 
+		    
+		     	기능
+		     	글 리스트 -누구나 접근 가능
+		     	상세보기- 누구나 접근 가능, 글 리스트에서 제목 을 클릭
+		     	글 수정 -관리자만 접근 가능
+		     	글 삭제 -관리자만 접근 가능
+		     	글 작성 -관리자만 접근 가능
+		     	
+		     	
+		    
+		    Back-end
+		    
+		    
+		    noticeMapper
+		    
+		    - com.iu.s3.notice
+		    noticeDAO
+		    	getList : 글 리스트
+		        getSelect  : 상세보기
+		        setInsert  : 글 작성
+		        setUpdate  : 글 수정
+		        setDelete  : 글 삭제 
+		        setHitUpdate :  조회수1증가업데이트 / select 누를때service에서 만들어 
+		    
+		    noticeService
+		    	getList : 글 리스트
+		        getSelect  : 상세보기
+		        setInsert  : 글 작성
+		        setUpdate  : 글 수정
+		        setDelete  : 글 삭제 
+		        setHitUpdate :  조회수1증가업데이트 /
+		    
+		    NoticeController
+		    	getList : 글 리스트
+		        getSelect  : 상세보기
+		        setInsert  : 글 작성*2
+		        setUpdate  : 글 수정*2
+		        setDelete  : 글 삭제 
+		        setHitUpdate :  조회수1증가업데이트 /
+		    
+		    
+		    Front-end
+		    
+		    	-  /WEB-INF/views/notice/
+		    	
+		    	글 리스트
+		    	/notice/noticeList   GET     noticeList.jsp
+		    	글 상세보기
+		    	/notice/noticeSelect   GET    noticeSelect.jsp
+		    	글 작성
+		    	/notice/noticeInsert   GET   noticeInsert.jsp
+		    	/notice/noticeInsert   POST  글 리스트로 이동
+		        글 수정
+		        /notice/noticeUpdate    GET  noticeUpdate.jsp
+		        /notice/noticeUpdate    POST 글 리스트로 이동
+		        글 삭제
+		        /notice/noticeDelete   GET   글 리스트로 이동
+		    
+		    
+		     -->
 
     
   </body>
