@@ -1,3 +1,4 @@
+<%@page import="java.net.URI"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -11,8 +12,7 @@
 <h1>Account List Page</h1>
 
 
-  <%-- <c:if test="${list.size() != 0}">
-	${list.id} 님의 계좌
+  
 	<table>
 		<thead>
 			<tr>
@@ -24,21 +24,21 @@
 		</thead>
 		
 		<tbody>
-		<c:forEach items="${list}" var="dto"> 
+		<c:forEach items="${list}" var="ar"> 
 			<tr>
-				<td><a href="./bankbookSelect?booknumber=${dto.booknumber}" >${dto.booknumber}</a></td>
-				<td>${dto.accountnumber}</td>
-				<td>${dto.accountbalance}</td>
-				<td>${dto.accountdate}</td>
+				<td><c:out value="${ar.booknumber}"/></td>
+				<td>${ar.accountnumber}</td>
+				<td>${ar.accountbalance}</td>
+				<td>${ar.accountdate}</td>
 			
 			</tr>
 		</c:forEach>
 		</tbody>
 	</table>
-	</c:if>
+
 		
 	
 
- --%>
+ 
 </body>
 </html>

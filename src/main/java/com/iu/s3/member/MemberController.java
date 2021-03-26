@@ -17,6 +17,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	
+	
+	
 	@RequestMapping(value="memberUpdate")
 	public void memberUpdate ()throws Exception{
 	}
