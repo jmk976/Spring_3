@@ -22,12 +22,8 @@
 	<div class="container">
 
 
-	<h2>NOTICE List</h2>
-	
-	
-	
-	
-	
+	<h2>NOTICE</h2>
+
 	<table class ="table">
 	
 		<thead class="thead-dark">
@@ -54,9 +50,11 @@
 		</c:forEach>
 		</tbody>
 	</table>
-	
+  
 	</div> 
-		
+	<div class="container">
+      <a href="./noticeInsert"> <button type="button" class="btn btn-dark">글작성</button></a>
+	</div>
 
 </body>
 </html>

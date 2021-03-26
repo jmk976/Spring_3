@@ -13,6 +13,9 @@ public class NoticeDAO {
 	private SqlSession sqlSession; 
 	private final String NAMESPACE="com.iu.s3.notice.NoticeDAO.";
 	
+	public int setInsert (NoticeDTO noticeDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setInsert", noticeDTO);
+	}
 	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getSelect", noticeDTO);
 	}

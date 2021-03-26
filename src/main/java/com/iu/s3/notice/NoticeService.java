@@ -11,6 +11,10 @@ public class NoticeService {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+	public int setInsert(NoticeDTO noticeDTO) throws Exception{
+	      return noticeDAO.setInsert(noticeDTO);
+	}
+	
 	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
 		 return noticeDAO.getSelect(noticeDTO);
 	}
