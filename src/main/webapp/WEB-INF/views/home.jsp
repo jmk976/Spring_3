@@ -60,8 +60,9 @@
     </div>
 		<div class="jumbotron text-center" style="mrargin-bottom:0">
 		<p>Footer</p>
-		
+		</div>
 		</div>    
+		</div> 
 		    
 		    <!-- 
 		    

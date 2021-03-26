@@ -14,7 +14,7 @@ public class BankBookDAOTest extends MyAbstractTest{
 	@Autowired
 	private BankBookDAO bankBookDAO;
 	
-	@Test
+	//@Test
 	public void setUpdateTest()throws Exception{
 		BankBookDTO bankBookDTO = new BankBookDTO();
 		
