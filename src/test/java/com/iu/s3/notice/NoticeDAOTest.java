@@ -15,6 +15,19 @@ public class NoticeDAOTest extends MyAbstractTest {
 	private NoticeDAO noticeDAO;
 	
 	@Test
+	public void setUpdateTest() throws Exception {
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setNum(2);
+		noticeDTO.setTitle("test");
+		noticeDTO.setContents("test");
+		
+		
+		 int result = noticeDAO.setUpdate(noticeDTO);
+		 
+		 assertEquals(1, result);
+	}
+	
+	//@Test
 	public void getListTest() throws Exception{
 		List<NoticeDTO> ar = noticeDAO.getList();
 		

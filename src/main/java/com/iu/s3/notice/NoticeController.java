@@ -18,26 +18,30 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@RequestMapping("noticeUpdate")
-	public void setUpdate(NoticeDTO noticeDTO, HttpSession session)throws Exception{
-		noticeDTO = noticeService.getSelect(noticeDTO);
-		System.out.println(noticeDTO.getNum());
-		session.setAttribute("notice", noticeDTO);
+	public void setUpdate()throws Exception{
+		
 	}
 	
 	@RequestMapping(value = "noticeUpdate", method=RequestMethod.POST)
-	public String setUpdate(HttpSession session)throws Exception{
-		NoticeDTO noticeDTO = (NoticeDTO)session.getAttribute("notice");
+	public String setUpdate(NoticeDTO noticeDTO, HttpSession session)throws Exception{
+	  
 		System.out.println(noticeDTO.getNum());
 		System.out.println(noticeDTO.getTitle());
 		
+		
 		int result = noticeService.setUpdate(noticeDTO);
+		
+		if(result>0) {
+			session.setAttribute("dto", noticeDTO);
+			
 		System.out.println(noticeDTO.getNum());
 		System.out.println(noticeDTO.getTitle());
+		}
 		
 		return "redirect:./noticeList";
 	}
 	
-	
+	;
 	@RequestMapping("noticeInsert")
 	public void setInsert()throws Exception{
 	}
@@ -50,9 +54,9 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("noticeSelect")
-	public void getSelect(NoticeDTO noticeDTO, Model model) throws Exception {
+	public void getSelect(NoticeDTO noticeDTO, HttpSession session) throws Exception {
 		noticeDTO = noticeService.getSelect(noticeDTO);
-		model.addAttribute("dto", noticeDTO);
+		session.setAttribute("dto", noticeDTO);
 	}
 	
 	@RequestMapping("noticeList")

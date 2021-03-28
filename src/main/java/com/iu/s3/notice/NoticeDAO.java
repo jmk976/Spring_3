@@ -11,6 +11,7 @@ public class NoticeDAO {
 	
 	@Autowired
 	private SqlSession sqlSession; 
+	
 	private final String NAMESPACE="com.iu.s3.notice.NoticeDAO.";
 	
 	public int setUpdate(NoticeDTO noticeDTO) throws Exception {

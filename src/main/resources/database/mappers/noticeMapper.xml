@@ -11,19 +11,19 @@
      </select>
  	
  	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">
- 		select * from notice where num = ${num}
+ 		select * from notice where num = #{num}
  	</select>
   
 	  <insert id="setInsert" parameterType="NoticeDTO">
-	   insert into notice values(notice_seq.nextval, '${title}', '관리자', sysdate, 0, '${contents}')
+	   insert into notice values(notice_seq.nextval, '#{title}', '관리자', sysdate, 0, '#{contents}')
 	  </insert>
 	  
 	  <update id="setUpdate" parameterType="NoticeDTO">
-	   update notice set title='${title}', contents='${contents}' where num = ${num}
+	   update notice set title=#{title}, contents=#{contents}, writer=#{writer}, regDate=#{regDate}, hit=#{hit} where num = #{num}
 	  </update>
 	  
 	  <delete id="setDelete" parameterType="NoticeDTO">
-	  delete notice where num = ${num}
+	  delete notice where num = #{num}
 	  </delete>
  
  </mapper>
