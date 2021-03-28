@@ -13,7 +13,6 @@
 
 - <div class ="container"> 
 		<h2>NOTICE</h2>
-		${dto.num}
 		
 	<form action="noticeUpdate" method="post"> 
 	

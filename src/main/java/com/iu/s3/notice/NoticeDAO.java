@@ -14,6 +14,10 @@ public class NoticeDAO {
 	
 	private final String NAMESPACE="com.iu.s3.notice.NoticeDAO.";
 	
+	public int setDelete(NoticeDTO noticeDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE+"setDelete", noticeDTO);
+	}
+	
 	public int setUpdate(NoticeDTO noticeDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"setUpdate", noticeDTO);
 	}

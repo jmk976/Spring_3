@@ -15,7 +15,7 @@
  	</select>
   
 	  <insert id="setInsert" parameterType="NoticeDTO">
-	   insert into notice values(notice_seq.nextval, '#{title}', '관리자', sysdate, 0, '#{contents}')
+	   insert into notice values(notice_seq.nextval, #{title}, '관리자', sysdate, 0, #{contents})
 	  </insert>
 	  
 	  <update id="setUpdate" parameterType="NoticeDTO">

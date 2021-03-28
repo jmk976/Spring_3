@@ -17,6 +17,13 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	@RequestMapping("noticeDelete")
+	public String setDelete(NoticeDTO noticeDTO)throws Exception{
+		int result = noticeService.setDelete(noticeDTO);
+		System.out.println(result);
+		return "redirect:./noticeList";
+	}
+	
 	@RequestMapping("noticeUpdate")
 	public void setUpdate()throws Exception{
 		
