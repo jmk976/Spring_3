@@ -19,7 +19,7 @@
 	  </insert>
 	  
 	  <update id="setUpdate" parameterType="NoticeDTO">
-	   update notice set title=#{title}, contents=#{contents}, writer=#{writer}, regDate=#{regDate}, hit=#{hit} where num = #{num}
+	   update notice set title=#{title}, contents=#{contents} where num = #{num}
 	  </update>
 	  
 	  <delete id="setDelete" parameterType="NoticeDTO">

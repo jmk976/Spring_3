@@ -24,7 +24,6 @@ public class NoticeController {
 	
 	@RequestMapping(value = "noticeUpdate", method=RequestMethod.POST)
 	public String setUpdate(NoticeDTO noticeDTO, HttpSession session)throws Exception{
-	  
 		System.out.println(noticeDTO.getNum());
 		System.out.println(noticeDTO.getTitle());
 		

@@ -11,24 +11,13 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<!-- <div class ="container"> -->
+- <div class ="container"> 
 		<h2>NOTICE</h2>
 		${dto.num}
 		
 	<form action="noticeUpdate" method="post"> 
-
-	 제목: <input type="text" name="title" value="${dto.title}"> <br>
-	 내용: <input type="text" name="contents" value="${dto.contents}"> <br>
-	  <input type="hidden" name="num" value="${dto.num}"> <br>
-	  <input type="hidden" name="writer" value="${dto.writer}"> <br>
-	  <input type="hidden" name="regDate" value="${dto.regDate}"> <br>
-	  <input type="hidden" name="hit" value="${dto.hit}"> <br>
-	  
-	 <button > Update </button>
-	 </form>
 	
-	
-  	 <%-- <div class="form-group">
+  	  <div class="form-group">
       	<label for="title"> 제목: </label>
       	<input type="text" class="form-control" id="title" name="title" value="${dto.title}">
     </div>
@@ -37,10 +26,12 @@
       	<label for="contents">내용:</label>
       	<textarea class="form-control" rows="5" id="contents" name="contents">${dto.contents}</textarea>
     </div> 
+    <input type="hidden" name="num" value="${dto.num}"> <br>
+	  
   
      	  <button type="submit" class="btn btn-dark">Submit</button>
 	</form>
- </div> --%>
+ </div>
 
 </body>
 </html>
