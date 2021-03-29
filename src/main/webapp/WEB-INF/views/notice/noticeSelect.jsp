@@ -43,11 +43,16 @@
         
   </div>
   
-  <div class="container">
+      <c:catch>
+      <c:if test="${member.id=='admin'}">
+  
+      <div class="container">
       <a href="./noticeUpdate?num=${dto.num}"> <button type="button" class="btn btn-dark"> 수정 </button></a>
       <a href="./noticeDelete?num=${dto.num}"> <button type="button" class="btn btn-dark"> 삭제 </button></a>
       
-	</div>
+	  </div>
+	  </c:if>
+	  </c:catch>
 
 
 </body>

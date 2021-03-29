@@ -5,9 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.iu.s3.util.Pager;
 
 @Controller
 @RequestMapping(value="/bankbook/**")
@@ -42,9 +45,22 @@ public class BankBookController {
 	}
 
 	@RequestMapping("bankbookList")  //속성 하나만 있을 경우  value 생략가능
-	public void getList(Model model)throws Exception{
-		List<BankBookDTO> ar = bankBookService.getList();
-		model.addAttribute("list", ar);
+	public ModelAndView getList(Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+	    System.out.println(pager.getCurPage());
+		
+		System.out.println("Service 호출전: "+pager.getTotalPage());
+		
+		List<BankBookDTO> ar = bankBookService.getList(pager);
+		
+		System.out.println("Service 호출: "+pager.getTotalPage());
+	    System.out.println("서비스 호출후의 totalBlock: "+ pager.getTotalBlock());
+
+		mv.addObject("list", ar);
+		mv.setViewName("bankbook/bankbookList");
+		mv.addObject("bpager", pager);
+		return mv;
 	}
 	
 	@RequestMapping(value="bankbookSelect")

@@ -53,8 +53,23 @@
 	</table>
 	
 	</div>
-		<a href="./bankbookAdd?booknumber=${dto.booknumber}">ADD</a>
 	
+	<div class="container">
+     
+  		<ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    
+  	        <c:forEach begin="${bpager.startBlock}" end="${bpager.lastBlock}" var="i"> 
+   				 <li class="page-item"><a class="page-link" href="./bankbookList?curPage=${i}"> ${i} </a></li>
+    		</c:forEach>
+    
+    		<li class="page-item"><a class="page-link" href="#">Next</a></li>
+  		</ul>
+	</div>
+	
+	
+		
+		
 
 </body>
 </html>

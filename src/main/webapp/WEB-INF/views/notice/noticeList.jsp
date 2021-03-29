@@ -12,15 +12,11 @@
   </head>
   <body>
   
-  
   	<c:import url="../template/header.jsp"></c:import>
 		  
-		
 	
-    
   
 	<div class="container">
-
 
 	<h2>NOTICE</h2>
 
@@ -50,11 +46,33 @@
 		</c:forEach>
 		</tbody>
 	</table>
-  
+	
+ <c:catch>
+	<c:if test="${member.id=='admin'}">
 	</div> 
 	<div class="container">
       <a href="./noticeInsert"> <button type="button" class="btn btn-dark">글작성</button></a>
 	</div>
+	 </c:if>
+ </c:catch>
+ 
+ 	
+ 	
+ 	<div class="container">
+     
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    
+    <c:forEach begin="${pager.startBlock}" end="${pager.lastBlock}" var="i"> 
+    <li class="page-item"><a class="page-link" href="./noticeList?curPage=${i}"> ${i} </a></li>
+    </c:forEach>
+    
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</div>
+ 
+ 
+	
 
 </body>
 </html>

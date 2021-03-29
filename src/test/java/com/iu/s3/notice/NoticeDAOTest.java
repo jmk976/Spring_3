@@ -25,16 +25,24 @@ public class NoticeDAOTest extends MyAbstractTest {
 		 int result = noticeDAO.setUpdate(noticeDTO);
 		 
 		 assertEquals(1, result);
+		 
+		
 	}
 	
-	//@Test
-	public void getListTest() throws Exception{
-		List<NoticeDTO> ar = noticeDAO.getList();
-		
-		System.out.println(ar.size());
-		assertNotEquals(0, ar.size());
-		 
+	@Test 
+	public void setInserTest() throws Exception {
+		NoticeDTO noticeDTO = new NoticeDTO();
+		for(int i=0;i<120;i++) {
+		noticeDTO.setTitle("test title"+i);
+		noticeDTO.setContents("test contents"+i);
+		int result = noticeDAO.setInsert(noticeDTO);
+		if(i%10==0) {
+		Thread.sleep(500);
+		}
+		}
 	}
+	
+	
 	
 	
 	

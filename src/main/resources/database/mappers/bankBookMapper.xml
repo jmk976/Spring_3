@@ -6,24 +6,31 @@
     
 <mapper namespace="com.iu.s3.bankbook.BankBookDAO">
 
-	<update id="setUpdate" parameterType="com.iu.s3.bankbook.BankBookDTO" >
+	<update id="setUpdate" parameterType="BankBookDTO" >
 		update bankbook set bookname=#{bookname} , bookrate=#{bookrate}, booksale=#{booksale} where booknumber=#{booknumber}
 	</update>
 	
-	<insert id="setWrite" parameterType="com.iu.s3.bankbook.BankBookDTO">
+	<insert id="setWrite" parameterType="BankBookDTO">
 		insert into bankbook values(bank_seq.nextval, #{bookname},#{bookrate},#{booksale})
 	</insert>
 	
-	<select id="getSelect" parameterType="com.iu.s3.bankbook.BankBookDTO" resultType="com.iu.s3.bankbook.BankBookDTO">
+	<select id="getSelect" parameterType="BankBookDTO" resultType="BankBookDTO">
 		select * from bankbook where booknumber=#{booknumber}
 	</select>
 	
-	<select id="getList" resultType="com.iu.s3.bankbook.BankBookDTO"> 
-		select * from bankbook order by booknumber desc
+	<select id="getList" resultType="BankBookDTO" parameterType="Pager"> 
+		select * from
+        (select rownum R, N.* from 
+            (select * from bankbook where booknumber>0 order by booknumber desc) N)
+  		  where R between #{startRow} and #{lastRow}
 	</select>
 	
-	<delete id="setDelete" parameterType="com.iu.s3.bankbook.BankBookDTO">
+	<delete id="setDelete" parameterType="BankBookDTO">
 		delete bankbook where booknumber = #{booknumber}
 	</delete>
+	
+	<select id="getTotalCount" resultType="Long">
+		select count(booknumber) from bankbook
+	</select>
 </mapper>
 

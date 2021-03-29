@@ -13,28 +13,29 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.iu.s3.bankbook.BankBookDTO;
+import com.iu.s3.util.Pager;
 
 @Repository
 public class BankBookDAO {
 	//주입하는 어노테이션 
     @Autowired
 	private SqlSession sqlSession;
-    private final String NAMESPACE="com.iu.s3.bankbook.BankBookDAO";
+    private final String NAMESPACE="com.iu.s3.bankbook.BankBookDAO.";
     
     
     public int setUpdate(BankBookDTO bankBookDTO)throws Exception{
-    	return sqlSession.update(NAMESPACE+".setUpdate", bankBookDTO);
+    	return sqlSession.update(NAMESPACE+"setUpdate", bankBookDTO);
     	
     	
     }
     
     
     public int setDelete(BankBookDTO bankBookDTO) throws Exception{
-    	return sqlSession.delete(NAMESPACE+".setDelete",bankBookDTO);
+    	return sqlSession.delete(NAMESPACE+"setDelete",bankBookDTO);
     }
     
     public int setWrite(BankBookDTO bankBookDTO) throws Exception{
-    	int result = sqlSession.insert(NAMESPACE+".setWrite", bankBookDTO);
+    	int result = sqlSession.insert(NAMESPACE+"setWrite", bankBookDTO);
     	
     	
     	
@@ -46,7 +47,7 @@ public class BankBookDAO {
     	//long num = 1L;   bankBookDTO 부분num 으로 넣기 가
     	
     	System.out.println("select service");
-    	bankBookDTO = sqlSession.selectOne(NAMESPACE+".getSelect", bankBookDTO);
+    	bankBookDTO = sqlSession.selectOne(NAMESPACE+"getSelect", bankBookDTO);
         
     	System.out.println(bankBookDTO.getBooknumber());
         return bankBookDTO;
@@ -58,9 +59,13 @@ public class BankBookDAO {
     	
 
     	
-      public List<BankBookDTO> getList() throws Exception {
+      public List<BankBookDTO> getList(Pager pager) throws Exception {
     	  
-    	 return sqlSession.selectList(NAMESPACE+".getList");
+    	 return sqlSession.selectList(NAMESPACE+"getList", pager);
     	  
+      }
+      
+      public Long getTotalCount()throws Exception{
+    	  return sqlSession.selectOne(NAMESPACE+"getTotalCount");
       }
 }

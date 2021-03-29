@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.iu</groupId>
 	<artifactId>s3</artifactId>
-	<name>Spring_3</name>
+	<name>Spring_3_1</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -14,35 +14,37 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
-		<!-- Spring -->
-		<!-- mybatis - https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<!-- mybatis -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis</artifactId>
-		    <version>3.4.6</version>
+		    <version>3.5.4</version>
 		</dependency>
-		<!-- mybatis-spring https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+	
+		<!-- mybatis-spring -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis-spring</artifactId>
 		    <version>1.3.2</version>
 		</dependency>
-		
-		<!-- spring - jdbc  -https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+	
+		<!-- spring-jdbc -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-jdbc</artifactId>
 		    <version>${org.springframework-version}</version>
 		</dependency>
-				
-		<!--jdbc  - https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
+	
+		<!-- ojdbc10 -->
 		<dependency>
 		    <groupId>com.oracle.database.jdbc</groupId>
 		    <artifactId>ojdbc10</artifactId>
 		    <version>19.8.0.0</version>
-		</dependency>
+		</dependency>	
 	
-		
+	
+	
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -144,13 +146,13 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>  
-		      
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 		<dependency>
-    		 <groupId>org.springframework</groupId>
- 		 <artifactId>spring-test</artifactId>
- 		 <version>${org.springframework-version}</version>
- 		 <scope>test</scope>
- 		</dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <version>${org.springframework-version}</version>
+		    <scope>test</scope>
+		</dependency>		      
 	</dependencies>
     <build>
         <plugins>

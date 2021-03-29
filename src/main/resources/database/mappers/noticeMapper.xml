@@ -6,10 +6,7 @@
     
  <mapper namespace="com.iu.s3.notice.NoticeDAO"> 
  
- 	<select id="getList" resultType="NoticeDTO">
- 		select * from notice order by num desc
-     </select>
- 	
+
  	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">
  		select * from notice where num = #{num}
  	</select>
@@ -25,5 +22,21 @@
 	  <delete id="setDelete" parameterType="NoticeDTO">
 	  delete notice where num = #{num}
 	  </delete>
+	  
+	  <update id="setHitUpdate" parameterType="NoticeDTO">
+	    update notice set hit=#{hit+1} where num=#{num}
+	  </update>
+	  
+	 <select id="getList" resultType="NoticeDTO" parameterType="Pager">
+	    select * from
+			(select rownum R, N.* from 
+				(select * from notice where num>0 order by num desc) N)
+		where R between #{startRow} and #{lastRow}
+	  
+	  </select> 
+	  
+	  <select id="getTotalCount" resultType="Long">
+	      select count(num) from notice
+	  </select>
  
  </mapper>

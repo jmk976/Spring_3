@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.s3.MyAbstractTest;
+import com.iu.s3.util.Pager;
 
 public class BankBookDAOTest extends MyAbstractTest{
 
@@ -39,9 +40,9 @@ public class BankBookDAOTest extends MyAbstractTest{
 		assertEquals(1, result);
 	}
 	
-	@Test
-	public void getListTest() throws Exception{
-		List<BankBookDTO> ar =bankBookDAO.getList();
+	//@Test
+	public void getListTest(Pager pager) throws Exception{
+		List<BankBookDTO> ar =bankBookDAO.getList(pager);
 		assertNotEquals(0, ar.size());
 	}
 	
@@ -51,16 +52,22 @@ public class BankBookDAOTest extends MyAbstractTest{
 		assertNotNull(bankBookDTO);
 	}
 	
-	//@Test
+	@Test
 	public void setWriteTest() throws Exception {
+		
+		for(int i=0; i<200; i++) {
 		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO.setBookname("Test");
+		bankBookDTO.setBookname("BankName"+i);
 		bankBookDTO.setBookrate(0.12);
 		bankBookDTO.setBooksale("Y");
 		int result = bankBookDAO.setWrite(bankBookDTO);
+		if(i%10 == 0) {
+		Thread.sleep(500);
+		 }
+		}
 		
-		
-		assertEquals(1,result);  // result가 1이면 좋겠다
+		//assertEquals(1,result);  // result가 1이면 좋겠다
+		System.out.println("종료");
 	}
 	
 
