@@ -31,7 +31,7 @@ public class BankBookService {
 		   pager.setLastRow(lastRow);
 		   //--------------------------
 		   //1. totalCount
-		   long totalCount = bankBookDAO.getTotalCount();
+		   long totalCount = bankBookDAO.getTotalCount(pager);
 		   //2. totalPage
 		   long totalPage = totalCount/perPage;
 		   if(totalCount%perPage!=0) {
@@ -60,8 +60,22 @@ public class BankBookService {
 			System.out.println("curBlock: "+curBlock);
 			System.out.println("TotalPage: " +totalPage);
 			System.out.println("TotalBlock: "+totalBlock);
-		   
-
+			
+			//6. curBlock이 마지막 block 일때 
+			
+			if(curBlock == totalBlock) {
+				lastBlock = totalPage;
+			}
+			
+			//7. 이전, 다음 block 존재 여부
+			
+		  if(curBlock!=1) {
+			  pager.setPre(true);
+		  }
+          //다음
+		  if(curBlock!=totalBlock) {
+			  pager.setNext(true);
+		  }
 
 		   
 		

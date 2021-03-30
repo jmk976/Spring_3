@@ -4,14 +4,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <link rel="stylesheet" href="./resources/css/test.css">
    <title>Home</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
    <c:import url="./template/bootStrap.jsp"></c:import>
-
- 
+			
+				 
   </head>
   <body>
   	<c:import url="./template/header.jsp"></c:import>
@@ -24,7 +25,9 @@
     <div class="col-sm-4">
       <h2>About Me</h2>
       <h5>Photo of me:</h5>
-      <div class="fakeimg">Fake Image</div>
+      <div class="fakeimg">
+      <img alt="mk-img" src="./resources/images/mk1.jpg">  <!-- alt 이미지 엑박뜰때 설 -->
+          </div>
       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
       <h3>Some Links</h3>
       <p>Lorem ipsum dolor sit ame.</p>
@@ -125,7 +128,7 @@
 		    
 		    
 		     -->
-
+    <script type="text/javascript" src="./resources/js/test.js"></script>
     
   </body>
 </html>

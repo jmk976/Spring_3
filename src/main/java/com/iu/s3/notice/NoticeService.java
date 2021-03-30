@@ -61,7 +61,7 @@ public class NoticeService {
 		
 		//-------------------------------
 		//1. totalCount
-		long totalCount=noticeDAO.getTotalCount();
+		long totalCount=noticeDAO.getTotalCount(pager);
 		
 		//2. totalPage
 		long totalPage= totalCount/perPage ;
@@ -85,6 +85,21 @@ public class NoticeService {
 		
 		long startBlock = (curBlock-1)*perBlock+1;
 		long lastBlock  = curBlock*perBlock;
+		
+		//6. curBlock이 마지막 block 일때 (totalBlock)
+	     if(curBlock ==totalBlock) {
+	    	 lastBlock =totalPage;
+	     }
+		
+		//7. 이전, 다음 block 존재여부
+		//이전
+	     if(curBlock != 1) {
+		   pager.setPre(true);
+		   }
+	    //다음
+	     if(curBlock != totalBlock) {
+	    	pager.setNext(true);
+	    	}
 		
 		
 	

@@ -21,7 +21,19 @@
 	<select id="getList" resultType="BankBookDTO" parameterType="Pager"> 
 		select * from
         (select rownum R, N.* from 
-            (select * from bankbook where booknumber>0 order by booknumber desc) N)
+            (select * from bankbook where 
+             <choose>
+             	<when test="kind=='Bookname'">
+             		bookname
+             	</when>
+             	<when test="kind=='Booknumber'">
+             		booknumber
+             	</when>
+             	<otherwise>
+             		booksale
+             	</otherwise>
+             </choose>
+            like '%'||#{search}||'%' and booknumber>0 order by booknumber desc) N)
   		  where R between #{startRow} and #{lastRow}
 	</select>
 	
@@ -29,8 +41,22 @@
 		delete bankbook where booknumber = #{booknumber}
 	</delete>
 	
-	<select id="getTotalCount" resultType="Long">
+	<select id="getTotalCount" resultType="Long" parameterType="Pager">
 		select count(booknumber) from bankbook
+		where 
+             <choose>
+             	<when test="kind=='Bookname'">
+             		bookname
+             	</when>
+             	<when test="kind=='Booknumber'">
+             		booknumber
+             	</when>
+             	<otherwise>
+             		booksale
+             	</otherwise>
+             </choose>
+            like '%'||#{search}||'%' and booknumber>0
+		
 	</select>
 </mapper>
 

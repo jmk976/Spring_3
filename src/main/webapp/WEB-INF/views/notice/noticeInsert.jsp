@@ -17,6 +17,11 @@
 		<h2>NOTICE</h2>
 	<form action="./noticeInsert" method="post">
 	
+	<div class="form-group">
+      	<label for="writer"> 작성자: </label>
+      	<input type="text" readonly="readonly" value="${member.id}" class="form-control" id="writer" name="writer">
+    </div>
+	
   	<div class="form-group">
       	<label for="title"> 제목: </label>
       	<input type="text" class="form-control" id="title" name="title">

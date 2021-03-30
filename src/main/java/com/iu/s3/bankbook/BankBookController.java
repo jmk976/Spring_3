@@ -59,7 +59,7 @@ public class BankBookController {
 
 		mv.addObject("list", ar);
 		mv.setViewName("bankbook/bankbookList");
-		mv.addObject("bpager", pager);
+		mv.addObject("pager", pager);
 		return mv;
 	}
 	

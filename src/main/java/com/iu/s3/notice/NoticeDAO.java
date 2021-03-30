@@ -43,8 +43,8 @@ public class NoticeDAO {
 		
 	}
 	
-	public Long getTotalCount()throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"getTotalCount");
+	public Long getTotalCount(Pager pager)throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
 	}
 
 }
