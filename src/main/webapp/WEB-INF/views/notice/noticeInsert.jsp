@@ -33,9 +33,11 @@
     </div>
   
      	  <button type="submit" class="btn btn-dark">Submit</button>
+     	  <input type="button" value="WRITE" class="btn btn-dark" onclick="insertCheck()">
 	</form>
 </div>
 
+<script type="text/javascript" src="../resources/js/insertCheck.js"></script>
 
 
 </body>

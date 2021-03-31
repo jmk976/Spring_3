@@ -93,7 +93,7 @@
  </form> 
 </div>
 
-<a href="#" class="btn btn-primary" role="button">write</a>
+<a href="./noticeInsert" class="btn btn-primary" role="button">write</a>
   
 </div>
  
