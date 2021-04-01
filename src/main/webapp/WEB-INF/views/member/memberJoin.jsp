@@ -52,9 +52,10 @@
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-  <input type="button" value="JOIN"  class="btn btn-primary">
+  <input type="button" value="JOIN" onclick="confirm()" class="btn btn-primary">
 </form></div>
 
+<script type="text/javascript" src="../resources/js/memberJoinCheck.js"></script>
 	
 	 
 </body>

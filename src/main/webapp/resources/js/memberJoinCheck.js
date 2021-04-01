@@ -46,3 +46,35 @@ function go(){
 		
 	}
 }
+
+function confirm(){
+
+	alert("start confirm")
+	
+let id = document.getElementById("id");
+  let id_n = id.value.length;
+  
+  let pw = document.getElementById("pw");
+  let pw_n = pw.value.length;
+  
+  let pw2 = document.getElementById("pw2");
+  
+  let name = document.getElementById("name");
+  let nv= name.value;
+  
+  let phone = document.getElementById("phone");
+  let pv=phone.value;
+  
+  let email = document.getElementById("email");
+  let ev=email.value;
+  
+   if(id_n < 6||pw_n <8 ||pw.value!=pw2.value||nv==""||pv==""||ev==""){
+   alert("Please write again");
+  }
+
+
+
+}
+
+
+
