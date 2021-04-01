@@ -15,7 +15,7 @@
 
 <div class ="container">
 		<h2>NOTICE</h2>
-	<form action="./noticeInsert" method="post">
+	<form id="frm" action="./noticeInsert" method="post">
 	
 	<div class="form-group">
       	<label for="writer"> 작성자: </label>
@@ -32,8 +32,8 @@
       	<textarea class="form-control" rows="5" id="comment" name="contents"></textarea>
     </div>
   
-     	  <button type="submit" class="btn btn-dark">Submit</button>
-     	  <input type="button" value="WRITE" class="btn btn-dark" onclick="insertCheck()">
+     	  <input type="button" id="btn" value="WRITE" class="btn btn-dark">
+     	  
 	</form>
 </div>
 
