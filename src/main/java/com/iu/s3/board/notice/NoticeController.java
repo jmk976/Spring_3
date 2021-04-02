@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -81,10 +82,15 @@ public class NoticeController {
 		return "common/commonResult";
 	}
 	
-	@RequestMapping("noticeSelect")
-	public void getSelect(BoardDTO noticeDTO, HttpSession session) throws Exception {
-		noticeDTO = noticeService.getSelect(noticeDTO);
-		session.setAttribute("dto", noticeDTO);
+	@GetMapping("noticeSelect")
+	public ModelAndView getSelect(BoardDTO boardDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		boardDTO = noticeService.getSelect(boardDTO);
+		mv.addObject("dto", boardDTO);
+		mv.addObject("board", "notice");
+		mv.setViewName("board/boardSelect");
+		
+		return mv;
 	}
 	
 	@RequestMapping("noticeList")

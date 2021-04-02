@@ -7,7 +7,7 @@
  <mapper namespace="com.iu.s3.board.notice.NoticeDAO"> 
  
 
- 	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">
+ 	<select id="getSelect" parameterType="BoardDTO" resultType="NoticeDTO">
  		select * from notice where num = #{num}
  	</select>
   
