@@ -1,5 +1,7 @@
 package com.iu.s3.member;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -89,11 +91,23 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="memberJoin", method = RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO) throws Exception {
+	public String memberJoin(MemberDTO memberDTO, Model model) throws Exception {
 		
-		int result =memberService.memberJoin(memberDTO);
+		//int result =memberService.memberJoin(memberDTO);
+		Random random = new Random();
+		int result = random.nextInt(2);
+		String message = "회원가입 실패";
+	    String root = "./memberJoin";
 		
-		return "redirect:../";
+	   if(result>0) {
+		   message ="회원가입 성공";
+		   root ="../";
+	   }
+	   
+	   model.addAttribute("msg", message); 
+	   model.addAttribute("root", root);
+		
+		return "common/commonResult";
 	}
 
 }

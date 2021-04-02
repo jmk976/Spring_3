@@ -24,6 +24,8 @@ id.addEventListener("blur", function(){
       messege="아이디가 6자 이상 입니다.";
 		c="r2";
 		idCheckResult= true;
+	}else{
+		idCheckResult=false;
 	}
 
 	let idResult = document.getElementById("idResult");
@@ -41,8 +43,9 @@ pw.addEventListener("change", function(){
 });
 
     pw.addEventListener("blur", function(){
+	pwCheckResult=false;
 	alert(pw.value.length);
-	messege="비밀번호를 8자 이상 입력하시오.";
+	let messege="비밀번호를 8자 이상 입력하시오.";
 	let c ="r1";
 	
 	if(pw.value.length>7){

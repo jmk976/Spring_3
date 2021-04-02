@@ -2,6 +2,18 @@
     let all = document.getElementById("all");
 	let ch = document.getElementsByClassName("ch");
     let result=true;
+
+const  btn = document.getElementById("btn");
+
+btn.addEventListener("click", function(){
+	
+	 if(all.checked){
+	      location.href="./memberJoin";//GET
+		}else{
+			alert("약관동의는 필수 입니다")
+		}
+	
+});
 	
 	
 	
