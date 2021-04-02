@@ -1,4 +1,4 @@
-package com.iu.s3.notice;
+package com.iu.s3.board.notice;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.s3.board.BoardDTO;
 import com.iu.s3.util.Pager;
 
 @Controller
@@ -57,16 +58,22 @@ public class NoticeController {
 	
 	;
 	@RequestMapping("noticeInsert")
-	public void setInsert()throws Exception{
+	public ModelAndView setInsert()throws Exception{
+		ModelAndView mv =new ModelAndView();
+		mv.setViewName("board/boardInsert");
+		mv.addObject("board", "notice");
+		
+		return mv;
+
 	}
 	
 	@RequestMapping(value="noticeInsert", method=RequestMethod.POST)
-	public String setInsert(NoticeDTO noticeDTO, Model model)throws Exception{
-		int result = noticeService.setInsert(noticeDTO);
-		String message="글 작성 실패했습니다.";
+	public String setInsert(BoardDTO boardDTO, Model model)throws Exception{
+		int result = noticeService.setInsert(boardDTO);
+		String message="글 등록 실패.";
 	   
 		if(result>0) {
-			message="글 작성 성공했습니다";
+			message="글 등록 성공";
 		    
 		}
 		model.addAttribute("msg", message);
@@ -75,7 +82,7 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("noticeSelect")
-	public void getSelect(NoticeDTO noticeDTO, HttpSession session) throws Exception {
+	public void getSelect(BoardDTO noticeDTO, HttpSession session) throws Exception {
 		noticeDTO = noticeService.getSelect(noticeDTO);
 		session.setAttribute("dto", noticeDTO);
 	}
@@ -86,13 +93,14 @@ public class NoticeController {
 		System.out.println(pager.getCurPage());
 		
 		System.out.println("Service 호출전: "+pager.getTotalPage());
-		List<NoticeDTO> ar = noticeService.getList(pager);
+		List<BoardDTO> ar = noticeService.getList(pager);
 		System.out.println("Service 호출: "+pager.getTotalPage());
 	    System.out.println("서비스 호출후의 totalBlock"+ pager.getTotalBlock());
 
 		//List<NoticeDTO> ar = noticeService.getList(curPage);
 		modelAndView.addObject("list", ar);
-		modelAndView.setViewName("notice/noticeList");
+		modelAndView.setViewName("board/boardList");
+		modelAndView.addObject("board", "notice");
 		modelAndView.addObject("pager",pager);
 		return modelAndView;
 	}

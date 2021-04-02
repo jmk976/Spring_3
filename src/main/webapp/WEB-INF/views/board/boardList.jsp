@@ -1,28 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-   <c:import url="../template/bootStrap.jsp"></c:import>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<c:import url="../template/bootStrap.jsp"></c:import>
   </head>
   <body>
   
   	<c:import url="../template/header.jsp"></c:import>
-		  
-	
-  
-	<div class="container">
+  	
+  	<div class="container">
 	
 	<div>
 	 <img alt="gg" src="../resources/images/mk2.jpg">
 	</div>
 
-	<h2>NOTICE</h2>
+	<h2>${board} List</h2>
 
 	<table class ="table">
 	
@@ -40,7 +37,7 @@
 		<c:forEach items="${list}" var="dto"> 
 			<tr>
 				<td>${dto.num}</td>
-				<td><a href="./noticeSelect?num=${dto.num}">${dto.title}</a></td>
+				<td><a href="./${board}Select?num=${dto.num}">${dto.title}</a></td>
 				<td>${dto.writer}</td>
 				<td>${dto.regDate}</td>
 				<td>${dto.hit}</td>
@@ -61,7 +58,7 @@
  </c:catch>
  
  	
- 	
+ 	<%-- 
  	<div class="container">
      
   <ul class="pagination">
@@ -92,13 +89,12 @@
   </div>
  </form> 
 </div>
-
-<a href="./noticeInsert" class="btn btn-primary" role="button">write</a>
+ --%>
+<a href="./${board}Insert" class="btn btn-primary" role="button">write</a>
   
 </div>
  
  
-	
-
+		  
 </body>
 </html>

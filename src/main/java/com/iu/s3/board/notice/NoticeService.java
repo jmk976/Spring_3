@@ -1,4 +1,4 @@
-package com.iu.s3.notice;
+package com.iu.s3.board.notice;
 
 import java.util.List;
 
@@ -6,43 +6,71 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.iu.s3.board.BoardDTO;
+import com.iu.s3.board.BoardService;
 import com.iu.s3.util.Pager;
 
 @Service
-public class NoticeService {
+public class NoticeService implements BoardService{
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
-	public int setHitUpdate(NoticeDTO noticeDTO) throws Exception {
-		 return noticeDAO.setHitUpdate(noticeDTO);
-	}
+
 	
-	public int setDelete(NoticeDTO noticeDTO) throws Exception{
-		return noticeDAO.setDelete(noticeDTO);
+	@Override
+	public long getTotalCount(Pager pager) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
-;	
-	public int setUpdate(NoticeDTO noticeDTO)throws Exception {
-		return noticeDAO.setUpdate(noticeDTO);
-	}
-	
-	public int setInsert(NoticeDTO noticeDTO) throws Exception{
-	      return noticeDAO.setInsert(noticeDTO);
-	}
-	
-	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
+
+
+
+	@Override
+	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 		
-		long h = noticeDTO.getHit();
-		System.out.println(noticeDTO.getNum());
-		System.out.println(noticeDTO.getTitle());
-		System.out.println(h);
-		
-		 return noticeDAO.getSelect(noticeDTO);
-		
-		 
 	}
 	
-	public List<NoticeDTO> getList(Pager pager) throws Exception{
+	
+	@Override
+	public int setInsert(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.setInsert(boardDTO);
+	}
+
+
+
+	@Override
+	public int setHitUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	
+
+
+
+	@Override
+	public int setUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	@Override
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	public List<BoardDTO> getList(Pager pager) throws Exception{
 		int perPage=10;//한페이지당 보여줄 글의 갯수
 		int perBlock=5;// 한 블럭당 보여줄 숫자의 갯수
 		

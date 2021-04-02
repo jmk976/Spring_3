@@ -14,8 +14,8 @@
 
 
 <div class ="container">
-		<h2>NOTICE</h2>
-	<form id="frm" action="./noticeInsert" method="post">
+		<h2>${board} form</h2>
+	<form id="frm" action="./${board}Insert" method="post">
 	
 	<div class="form-group">
       	<label for="writer"> 작성자: </label>

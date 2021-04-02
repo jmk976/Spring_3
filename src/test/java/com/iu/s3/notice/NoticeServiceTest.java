@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.s3.MyAbstractTest;
-import com.iu.s3.notice.NoticeDTO;
-import com.iu.s3.notice.NoticeService;
+import com.iu.s3.board.notice.NoticeDTO;
+import com.iu.s3.board.notice.NoticeService;
 
 public class NoticeServiceTest extends MyAbstractTest {
 	
