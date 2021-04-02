@@ -93,9 +93,8 @@ public class MemberController {
 	@RequestMapping(value="memberJoin", method = RequestMethod.POST)
 	public String memberJoin(MemberDTO memberDTO, Model model) throws Exception {
 		
-		//int result =memberService.memberJoin(memberDTO);
-		Random random = new Random();
-		int result = random.nextInt(2);
+	    int result =memberService.memberJoin(memberDTO);
+		
 		String message = "회원가입 실패";
 	    String root = "./memberJoin";
 		
