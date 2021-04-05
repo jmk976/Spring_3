@@ -19,6 +19,16 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
+	@GetMapping("qnaSelect")
+	public ModelAndView getSelect(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardDTO = qnaService.getSelect(boardDTO);
+		mv.addObject("board", "qna");
+		mv.addObject("dto", boardDTO);
+		mv.setViewName("board/boardSelect");
+		return mv;
+	}
+	
 	@GetMapping("qnaList")
 	public ModelAndView getList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();

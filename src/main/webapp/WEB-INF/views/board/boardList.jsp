@@ -41,9 +41,7 @@
 				
 				
 				<c:catch>
-				
 					<c:forEach begin="1" end="$dto.depth">--</c:forEach>
-				
 					</c:catch>
 				
 				${dto.title}</a></td>

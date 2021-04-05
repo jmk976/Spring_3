@@ -30,7 +30,8 @@ public class QnaService implements BoardService{
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		int result = qnaDAO.setHitUpdate(boardDTO);
+		return qnaDAO.getSelect(boardDTO);
 	}
 
 	@Override
