@@ -37,8 +37,8 @@
 	</form>
 </div>
 
-<script type="text/javascript" src="../resources/js/insertCheck.js"></script>
-
+<!-- <script type="text/javascript" src="../resources/js/insertCheck.js"></script>
+ -->
 
 </body>
 </html>
