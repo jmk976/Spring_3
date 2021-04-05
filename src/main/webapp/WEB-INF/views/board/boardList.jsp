@@ -41,9 +41,9 @@
 				
 				
 				<c:catch>
-				<c:if test="${board == 'qna'}">
+				
 					<c:forEach begin="1" end="$dto.depth">--</c:forEach>
-					</c:if>
+				
 					</c:catch>
 				
 				${dto.title}</a></td>
