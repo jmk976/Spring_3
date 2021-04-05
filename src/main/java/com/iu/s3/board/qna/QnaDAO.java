@@ -17,6 +17,15 @@ public class QnaDAO implements BoardDAO{
 	private SqlSession sqlSession;
 	
 	private final String NAMESPACE="com.iu.s3.board.qna.QnaDAO.";
+	
+	public int setReplyUpdate(QnaDTO qnaDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"setReplyUpdate", qnaDTO);
+		
+	}
+	
+	public int setReply(QnaDTO qnaDTO)throws Exception {
+		return sqlSession.insert(NAMESPACE+"setReply", qnaDTO);
+	}
 
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
@@ -39,7 +48,7 @@ public class QnaDAO implements BoardDAO{
 	@Override
 	public int setHitUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.update(NAMESPACE+"setHitUpdate", boardDTO);
+		return sqlSession.update(NAMESPACE+"setHitUpdate");
 	}
 
 	@Override

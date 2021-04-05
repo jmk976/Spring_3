@@ -14,8 +14,10 @@
 
 
 <div class ="container">
-		<h2>${board} form</h2>
-	<form id="frm" action="./${board}Insert" method="post">
+		<h2>${board} Reply form</h2>
+	<form id="frm" action="./${board}Reply" method="post">
+	
+	  <input type="hidden" name="num" value="${param.num}">
 	
 	<div class="form-group">
       	<label for="writer"> 작성자: </label>

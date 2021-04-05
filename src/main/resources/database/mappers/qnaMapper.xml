@@ -5,6 +5,15 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.iu.s3.board.qna.QnaDAO"> 
+
+	<update id="setReplyUpdate" parameterType="QnaDTO">
+	      update qna set step = step +1 where ref=#{ref} and step >#{step}
+	 </update>
+	 
+	 <insert id="setReply" parameterType="QnaDTO">
+	    insert into qna values(qna_seq.nextval, #{title}, #{writer}, sysdate, 0, #{contents}, qna_seq.currval,0,0)
+
+	 </insert>
 	<update id="setHitUpdate" parameterType="boardDTO">
         update qna set hit=hit+1 where num =#{num}	
 	 </update>
@@ -14,7 +23,7 @@
 	</select>
 
 	<insert id="setInsert" parameterType="BoardDTO">
-		inset into qna values(qna_seq.nextval, #{title}, #{writer}, sysdate, 0, #{contens}, qna_seq.currval,0,0)
+		insert into qna values(qna_seq.nextval, #{title}, #{writer}, sysdate, 0, #{contents}, qna_seq.currval,0,0)
 	</insert>
 
 	<select id="getList" resultType="QnaDTO" parameterType="Pager">

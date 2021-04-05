@@ -40,8 +40,8 @@
 				<td><a href="./${board}Select?num=${dto.num}">
 				
 				
-				<c:catch>
-					<c:forEach begin="1" end="$dto.depth">--</c:forEach>
+				   <c:catch>
+					   <c:forEach begin="1" end="${dto.depth}">--</c:forEach>
 					</c:catch>
 				
 				${dto.title}</a></td>
