@@ -1,6 +1,8 @@
 package com.iu.s3.util;
 
 public class Pager {
+	private int perPage=10;//한페이지당 보여줄 글의 갯수
+	private int perBlock=5;// 한 블럭당 보여줄 숫자의 갯수
 	
 	private long curPage;
 	private long startRow;

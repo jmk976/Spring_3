@@ -11,7 +11,7 @@
 	 </update>
 	 
 	 <insert id="setReply" parameterType="QnaDTO">
-	    insert into qna values(qna_seq.nextval, #{title}, #{writer}, sysdate, 0, #{contents}, qna_seq.currval,0,0)
+	    insert into qna values(qna_seq.nextval, #{title}, #{writer}, sysdate, 0, #{contents}, #{ref}, #{step}, #{depth})
 
 	 </insert>
 	<update id="setHitUpdate" parameterType="boardDTO">

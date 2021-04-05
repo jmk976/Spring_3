@@ -15,10 +15,6 @@
   	
   	<div class="container">
 	
-	<div>
-	 <img alt="gg" src="../resources/images/mk2.jpg">
-	</div>
-
 	<h2>${board} List</h2>
 
 	<table class ="table">
@@ -55,17 +51,17 @@
 		</tbody>
 	</table>
 	
- <c:catch>
+ <%-- <c:catch>
 	<c:if test="${member.id=='admin'}">
 	</div> 
 	<div class="container">
       <a href="./noticeInsert"> <button type="button" class="btn btn-dark">글작성</button></a>
 	</div>
 	 </c:if>
- </c:catch>
+ </c:catch> --%>
  
  	
- 	<%-- 
+ 	
  	<div class="container">
      
   <ul class="pagination">
@@ -96,7 +92,7 @@
   </div>
  </form> 
 </div>
- --%>
+
 <a href="./${board}Insert" class="btn btn-primary" role="button">write</a>
   
 </div>
