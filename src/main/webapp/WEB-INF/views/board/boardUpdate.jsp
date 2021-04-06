@@ -34,7 +34,7 @@
       	<textarea class="form-control" rows="5" id="comment" name="contents">${dto.contents}</textarea>
     </div>
   
-     	  <input type="submit" id="btn" value="UPDATE" class="btn btn-dark">
+     	  <input type="submit" id="btn" value="WRITE" class="btn btn-dark">
      	  
 	</form>
 </div>

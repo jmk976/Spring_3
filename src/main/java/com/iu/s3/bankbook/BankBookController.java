@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.iu.s3.util.Pager;
+import com.iu.s3.util.Pager_backup;
 
 @Controller
 @RequestMapping(value="/bankbook/**")
@@ -45,7 +45,7 @@ public class BankBookController {
 	}
 
 	@RequestMapping("bankbookList")  //속성 하나만 있을 경우  value 생략가능
-	public ModelAndView getList(Pager pager)throws Exception{
+	public ModelAndView getList(Pager_backup pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 	    System.out.println(pager.getCurPage());

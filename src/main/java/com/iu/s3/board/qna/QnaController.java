@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s3.board.BoardDTO;
 import com.iu.s3.util.Pager;
+import com.iu.s3.util.Pager_backup;
 
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -38,7 +39,6 @@ public class QnaController {
 		return mv;
 	}
 	
-	
 	@GetMapping("qnaSelect")
 	public ModelAndView getSelect(BoardDTO boardDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -55,9 +55,9 @@ public class QnaController {
 		List<BoardDTO> ar = qnaService.getList(pager);
 		mv.addObject("list", ar);
 		mv.addObject("board", "qna");
-	
+		mv.addObject("pager", pager);
 		mv.setViewName("board/boardList");
-	return mv;
+		return mv;
 	}
 	
 	@GetMapping("qnaInsert")
@@ -66,7 +66,7 @@ public class QnaController {
 		mv.setViewName("board/boardInsert");
 		mv.addObject("board", "qna");
 		return mv;
-
+		
 	}
 	@PostMapping("qnaInsert")
 	public ModelAndView setInsert(BoardDTO boardDTO) throws Exception{
@@ -75,5 +75,60 @@ public class QnaController {
 		mv.setViewName("redirect:./qnaList");
 		return mv;
 	}
+	
+	@PostMapping("qnaDelete")
+	public ModelAndView setDelete(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView(); 
+		int result = qnaService.setDelete(boardDTO);
+		
+		String message ="삭제 실패";
+		String root ="./qnaList";
+		
+		if(result>0) {
+			message="삭제 성공";
+		}
+		mv.addObject("msg", message);
+		mv.addObject("root", root);
+		
+		mv.setViewName("common/commonResult");
+		
+		return mv;
+		
+		
+	}
+	
+	
+	@PostMapping
+	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv)throws Exception{
+		int result = qnaService.setUpdate(boardDTO);
+		//성공하면 리스트로 이동
+				if(result>0) {
+				   mv.setViewName("redirect:./qnaList");
+				} else {
+					mv.addObject("msg", "수정실패");
+				    mv.addObject("root", "./qnaList");
+				    mv.setViewName("common/commonResult");
+				}
+				
+				return mv;
+		
+	}
+	
+	@GetMapping
+	public ModelAndView setUpdate(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardDTO = qnaService.getSelect(boardDTO);
+		
+		mv.addObject("dto", boardDTO);
+		mv.addObject("board", "qna");
+		mv.setViewName("board/boardUpdate");
+		
+		return mv;
+	}
+	
+	
+	
+	
+	
 
 }

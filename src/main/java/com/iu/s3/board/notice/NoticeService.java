@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.iu.s3.board.BoardDTO;
 import com.iu.s3.board.BoardService;
 import com.iu.s3.util.Pager;
+import com.iu.s3.util.Pager_backup;
 
 @Service
 public class NoticeService implements BoardService{
@@ -57,7 +58,7 @@ public class NoticeService implements BoardService{
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return noticeDAO.setUpdate(boardDTO);
 	}
 
 
@@ -65,81 +66,24 @@ public class NoticeService implements BoardService{
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return noticeDAO.setDelete(boardDTO);
 	}
 
 
 
 	public List<BoardDTO> getList(Pager pager) throws Exception{
-		int perPage=10;//한페이지당 보여줄 글의 갯수
-		int perBlock=5;// 한 블럭당 보여줄 숫자의 갯수
 		
 		
 		// -------startRow, lastRow--------
-		long startRow =(pager.getCurPage()-1)*perPage+1;
-		long lastRow = pager.getCurPage()*perPage;
-		
-		pager.setStartRow(startRow);
-		pager.setLastRow(lastRow);
+		pager.makeRow();
+	
 		//-------------------------------
 		
-	
-		
-
-		
-		//-------------------------------
-		//1. totalCount
-		long totalCount=noticeDAO.getTotalCount(pager);
-		
-		//2. totalPage
-		long totalPage= totalCount/perPage ;
-		if(totalCount%perPage!=0) {
-		     totalPage++;
-		} 
-		
-		//3.totalBlock
-		long totalBlock = totalPage/perBlock;
-		if(totalPage%perBlock !=0) {
-			totalBlock++;
-		}
-		
-		//4.curBlock
-		long curBlock=pager.getCurPage()/perBlock;
-		if(pager.getCurPage()%perBlock != 0) {
-			curBlock++;
-		}
-		
-		//5. startBlock ,lastBlock
-		
-		long startBlock = (curBlock-1)*perBlock+1;
-		long lastBlock  = curBlock*perBlock;
-		
-		//6. curBlock이 마지막 block 일때 (totalBlock)
-	     if(curBlock ==totalBlock) {
-	    	 lastBlock =totalPage;
-	     }
-		
-		//7. 이전, 다음 block 존재여부
-		//이전
-	     if(curBlock != 1) {
-		   pager.setPre(true);
-		   }
-	    //다음
-	     if(curBlock != totalBlock) {
-	    	pager.setNext(true);
-	    	}
-		
-		
-	
-		pager.setStartBlock(startBlock);
-		pager.setLastBlock(lastBlock);
-		
-		System.out.println("curBlock: "+curBlock);
-		System.out.println("TotalPage: " +totalPage);
-		System.out.println("TotalBlock: "+totalBlock);
+		//-----------페이징계산  ---------
+		long totalCount= noticeDAO.getTotalCount(pager);
+		pager.makeNum(totalCount);
 				
-				
-				
+		
 		return noticeDAO.getList(pager);
 	}
 	

@@ -17,33 +17,32 @@
   <body>
   	<c:import url="./template/header.jsp"></c:import>
   
-  	<button onclick="go()">button</button>
-  	<button id="btn">CLICK</button>
-  	<button id="btn2">CLICK2</button>
-  	version 5
+  	<button  class="b">button</button>
+  	<button id="btn" class="b">CLICK</button>
+  	<button id="btn2" class="b">CLICK2</button>
+  	<h1 id="t"> version 5</h1>
+  	<ol id="result">
+  		<li>A</li>
+  	
+  	</ol>
+  	
+  	<select id="mon">
+  	   <option>1</option>
+  	</select>
   
 		 
     <script type="text/javascript">
-  	   let btn = document.getElementById("btn");
-  	   let btn2 = document.getElementById("btn2");
-  	   
-  	   btn2.addEventListener("click", go);
-  	  btn2.addEventListener("click", function(){
-  		  alert("btn2");
-  		  go();
-  	  });
-  	   
-  	  // btn.onclick=go;
-  	  btn.onclick=function(){
-  		  alert("익명함수");
-  		  go();
-  	  }
+  	$("#btn").click(function(){
+  		$("#result").prepend('<li>Go</li>');
   		
-  	   function go(){
-  		   alert("hello");
-
-  	   }
-  		
+  	});
+  	   
+  	$('#btn2').click(function(){
+  		for(let i=1; i<13; i++){
+  			$("#mon").append("<option>"+i+"</option>");
+  		}
+  	});
+  	  
     	</script>
   </body>
 </html>

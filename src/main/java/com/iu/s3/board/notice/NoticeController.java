@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s3.board.BoardDTO;
 import com.iu.s3.util.Pager;
+import com.iu.s3.util.Pager_backup;
 
 @Controller
 @RequestMapping(value="/notice/**")
@@ -22,6 +24,61 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	@PostMapping
+	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv)throws Exception{
+
+		int result= noticeService.setUpdate(boardDTO);
+		
+		//성공하면 리스트로 이동
+		if(result>0) {
+		   mv.setViewName("redirect:./noticeList");
+		} else {
+			mv.addObject("msg", "수정실패");
+		    mv.addObject("root", "./noticeList");
+		    mv.setViewName("common/commonResult");
+		}
+		//실패하면 수정실패 띄우고, 리스트로 이동
+		
+		return mv;
+	}
+	
+	@GetMapping
+	public ModelAndView setUpdate(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardDTO = noticeService.getSelect(boardDTO);
+		
+		mv.addObject("dto", boardDTO);
+		mv.addObject("board", "notice");
+		mv.setViewName("board/boardUpdate");
+		return mv;
+	}
+	
+	
+		
+
+	
+	@PostMapping("noticeDelete")
+	public ModelAndView setDelete(BoardDTO boardDTO) throws Exception{
+		ModelAndView mv= new ModelAndView();
+		int result = noticeService.setDelete(boardDTO);
+		
+		String message="삭제 실패";
+		String root = "./noticeList";
+		
+		if(result>0) {
+			message="삭제 성공";
+			
+		}
+		
+		mv.addObject("msg",message);
+		mv.addObject("root",root);
+		
+		mv.setViewName("common/commonResult");
+		
+		return mv;
+		
+	}
+	
 	
 	@RequestMapping("noticeHitUpdate")
 	public void setHitUpdate(NoticeDTO noticeDTO)throws Exception{
@@ -29,35 +86,9 @@ public class NoticeController {
 		
 	}
 	
-	@RequestMapping("noticeDelete")
-	public String setDelete(NoticeDTO noticeDTO)throws Exception{
-		int result = noticeService.setDelete(noticeDTO);
-		System.out.println(result);
-		return "redirect:./noticeList";
-	}
-	
-	@RequestMapping("noticeUpdate")
-	public void setUpdate()throws Exception{
-		
-	}
-	
-	@RequestMapping(value = "noticeUpdate", method=RequestMethod.POST)
-	public String setUpdate(NoticeDTO noticeDTO, HttpSession session)throws Exception{
 
-		
-		int result = noticeService.setUpdate(noticeDTO);
-		
-		if(result>0) {
-			session.setAttribute("dto", noticeDTO);
-			
-		System.out.println(noticeDTO.getNum());
-		System.out.println(noticeDTO.getTitle());
-		}
-		
-		return "redirect:./noticeList";
-	}
 	
-	;
+	
 	@RequestMapping("noticeInsert")
 	public ModelAndView setInsert()throws Exception{
 		ModelAndView mv =new ModelAndView();
@@ -101,7 +132,7 @@ public class NoticeController {
 		System.out.println("Service 호출전: "+pager.getTotalPage());
 		List<BoardDTO> ar = noticeService.getList(pager);
 		System.out.println("Service 호출: "+pager.getTotalPage());
-	    System.out.println("서비스 호출후의 totalBlock"+ pager.getTotalBlock());
+
 
 		//List<NoticeDTO> ar = noticeService.getList(curPage);
 		modelAndView.addObject("list", ar);

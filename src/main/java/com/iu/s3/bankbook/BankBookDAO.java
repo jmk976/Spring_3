@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.iu.s3.bankbook.BankBookDTO;
-import com.iu.s3.util.Pager;
+import com.iu.s3.util.Pager_backup;
 
 @Repository
 public class BankBookDAO {
@@ -59,13 +59,13 @@ public class BankBookDAO {
     	
 
     	
-      public List<BankBookDTO> getList(Pager pager) throws Exception {
+      public List<BankBookDTO> getList(Pager_backup pager) throws Exception {
     	  
     	 return sqlSession.selectList(NAMESPACE+"getList", pager);
     	  
       }
       
-      public Long getTotalCount(Pager pager)throws Exception{
+      public Long getTotalCount(Pager_backup pager)throws Exception{
     	  return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
       }
 }

@@ -19,26 +19,26 @@
 	
 	<div class="form-group">
       	<label for="writer"> 작성자: </label>
-      	<input type="text" readonly="readonly" value="${member.id}" class="form-control" id="writer" name="writer">
+      	<input type="text" readonly="readonly" value="${member.id}" class="form-control myCheck" id="writer" name="writer">
     </div>
 	
   	<div class="form-group">
       	<label for="title"> 제목: </label>
-      	<input type="text" class="form-control" id="title" name="title">
+      	<input type="text" class="form-control myCheck" id="title" name="title">
     </div>
   
    	<div class="form-group">
-      	<label for="comment">내용:</label>
-      	<textarea class="form-control" rows="5" id="comment" name="contents"></textarea>
+      	<label for="contents">내용:</label>
+      	<textarea class="form-control myCheck" rows="5" id="contents" name="contents"></textarea>
     </div>
   
-     	  <input type="submit" id="btn" value="WRITE" class="btn btn-dark">
+     	  <input type="button" id="btn" value="WRITE" class="btn btn-dark">
      	  
 	</form>
 </div>
 
-<!-- <script type="text/javascript" src="../resources/js/insertCheck.js"></script>
- -->
+ <script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
+
 
 </body>
 </html>
