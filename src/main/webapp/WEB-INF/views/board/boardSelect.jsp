@@ -27,26 +27,26 @@
 	<a href="./${board}Reply?num=${dto.num}" class="btn btn-primary"> Reply </a>
 	</c:if>
 	
-	<form action="./${board}Delete" id="frm" method="get">
+    <form action="./${board}Delete" id="frm" method="get">
 		<input type="hidden" name="num" value="${dto.num}">
-	</form>
+	</form> 
 	
 </div>
 <script type="text/javascript">
 const del = document.getElementById("del");
 const frm = document.getElementById("frm");
 
-   del.addEventListener("click", function(){
-	   let result = confirm("Delete?");
-	   
-	   if(result){
-		  // frm.mothod="post";
-		  frm.setAttribute("method","post"); 
-		   
-		  frm.submit();
-	 	// location.href="./${board}Delete?num=${dto.num}";
-	   }
-   });
+del.addEventListener("click",function(){
+let result = confirm("delete??");
+
+if(result){
+	frm.setAttribute("method","post");
+	frm.submit();
+}else{
+	
+}
+
+});
 
 </script>
 
