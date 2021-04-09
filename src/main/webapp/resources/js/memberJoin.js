@@ -95,7 +95,7 @@ btn.addEventListener("click", function(){
 
 //************************** id 중복 조회
 
-id.addEventListener("blur",function(){
+$("#id").blur(function(){
 	let id= $("#id").val();
 	$.get("./memberIdCheck?id="+id, function(result){
 		

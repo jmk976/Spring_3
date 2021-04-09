@@ -27,6 +27,7 @@
   <div class="form-group">
     <label for="id">ID</label>
     <input type="text" class="form-control" id="id" name="id" >
+    <h6 id="idResult"></h6>
     <h6 id="idCheckResult"></h6>
   
     <!-- id는 6글자 이상 -->

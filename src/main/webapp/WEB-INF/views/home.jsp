@@ -43,13 +43,11 @@
   	</ol>
   	
   	<select id="mon">
-  	   <option>1</option>
+  
   	</select>
   
   <div id="d1">
-   	<div id="d2">
-   	
-   	</div>
+   	<div id="d2">	</div>
   </div>
 		 
 		 
