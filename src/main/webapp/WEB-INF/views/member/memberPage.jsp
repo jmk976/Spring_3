@@ -30,6 +30,10 @@ MemberPage
 			 <td>E-mail : </td>
 			 <td>${member.email}</td>
 			</tr>
+			<tr>
+			 <td><img alt="" src="../resources/upload/member/${member.memberFileDTO.fileName}"></td>
+			 
+			</tr>
 	
 	</table>
 	

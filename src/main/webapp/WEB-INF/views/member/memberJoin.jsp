@@ -15,15 +15,15 @@
 	}
 	
 	.r2{
-	   color:blue;    //class 사용해서 하
-	}
+	   color:blue;    
+	   }
 </style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class ="container">
 		<h2>Member Join Page</h2>
-	<form id="frm" action="./memberJoin" method="post">
+	<form id="frm" action="./memberJoin" method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="id">ID</label>
     <input type="text" class="form-control" id="id" name="id" >
@@ -32,7 +32,7 @@
   </div>
   <div class="form-group">
     <label for="pw">Password</label>
-    <input type="password" class="form-control" id="pw" name="pw">
+    <input type="password" class="form-control" id="pw" name="pw1">
      <h6 id="pwResult"></h6>
     <!-- pw는 8글자 이상 -->
   </div>
@@ -52,12 +52,12 @@
   </div>
   <div class="form-group">
     <label for="phone">Phone</label>
-    <input type="text" class="form-control etc" id="phone" name="phone" >
+    <input type="text" class="form-control etc" id="file" name="phone" >
     <!-- 비어 있으면 안됨 -->
   </div>
   <div class="form-group">
     <label for="email">E-mail</label>
-    <input type="text" class="form-control etc" id="email" name="email" aria-describedby="emailHelp">
+    <input type="text" class="form-control etc" id="email" name="email" aria-describedby="#">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
      <!-- 비어 있으면 안됨 -->
   </div>
@@ -65,6 +65,17 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
+  
+   <div class="form-group">
+    <label for="file">file</label>
+    <input type="file" class="form-control etc" id="avatar" name="avatar" >
+    <!-- 비어 있으면 안됨 -->
+  </div>
+  
+  
+ 
+  
+  
   <input type="submit" id="btn" value="JOIN" class="btn btn-primary">
 </form></div>
 

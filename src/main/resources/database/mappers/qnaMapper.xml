@@ -6,7 +6,9 @@
 
 <mapper namespace="com.iu.s3.board.qna.QnaDAO"> 
 
-	 
+	 <insert id="setFileInsert" parameterType="BoardFileDTO">
+	      insert into qnaFiles values (file_seq.nextval, #{num}, #{fileName}, #{originName}) 
+	 </insert>
 	 
 
 	 <update id="setReplyUpdate" parameterType="QnaDTO">
@@ -21,12 +23,23 @@
         update qna set hit=hit+1 where num =#{num}	
 	 </update>
 
-	<select id="getSelect" parameterType="BoardDTO" resultType="QnaDTO">
-	   select * from qna where num =#{num}
+	<select id="getSelect" parameterType="BoardDTO" >
+	   select *
+	   from qna 
+	   where num =#{num}
+	</select>
+	
+	
+	
+	<select id="getNum" resultType="java.lang.Long">
+	    select qna_seq.nextval from dual
 	</select>
 
 	<insert id="setInsert" parameterType="BoardDTO">
-		insert into qna values(qna_seq.nextval, #{title}, #{writer}, sysdate, 0, #{contents}, qna_seq.currval,0,0)
+	    <selectKey keyProperty="num" resultType="java.lang.Long" order="BEFORE"> 
+	    	select qna_seq.nextval from dual 
+	    </selectKey>
+		insert into qna values (#{num}, #{title}, #{writer}, sysdate, 0, #{contents}, #{num},0,0)
 	</insert>
 
 	<select id="getList" resultType="QnaDTO" parameterType="Pager">

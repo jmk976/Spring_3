@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -46,7 +47,7 @@ public class MemberController {
 	@RequestMapping(value="memberDelete")
 	public String memberDelete(HttpSession session)throws Exception{
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
-		int result = memberService.memberDelete(memberDTO);
+		int result = memberService.memberDelete(memberDTO, session);
 		
 		
 	    
@@ -91,10 +92,20 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="memberJoin", method = RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO, Model model) throws Exception {
+	public String memberJoin(MemberDTO memberDTO,MultipartFile avatar,HttpSession session, Model model) throws Exception {
 		
-	    int result =memberService.memberJoin(memberDTO);
+	    int result =memberService.memberJoin(memberDTO, avatar, session);
+		System.out.println(avatar.getName()); //파라미터명
+		System.out.println(avatar.getOriginalFilename());//업로드시의 파일 , 확장자를 알 수 있음. 
+		System.out.println(avatar.getSize());// 파일의 크기(byte)
+		System.out.println(avatar.isEmpty());// 파일의 존재 유무
 		
+		
+		
+		
+		
+		
+	
 		String message = "회원가입 실패";
 	    String root = "./memberJoin";
 		

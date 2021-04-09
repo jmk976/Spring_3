@@ -12,47 +12,20 @@ public class MemberDAOTest extends MyAbstractTest {
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	//@Test
-	public void memberUpdate() throws Exception {
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("id11");
-		memberDTO.setPw("pw11");
-		
-		memberDTO = memberDAO.memberLogin(memberDTO);
-		
-		memberDTO.setEmail("love@naver.com");
-		
-		int result = memberDAO.memberUpdate(memberDTO);
-		
-		
-		assertEquals(1, result);
-	}
-	
-	
-	//@Test
-	public void memberDelete() throws Exception {
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("id10");
-		int result = memberDAO.memberDelete(memberDTO);
-		
-		assertEquals(1, result);
-	}
-	
-	//@Test
-	public void memberJoinTest() throws Exception {
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("id13");
-		memberDTO.setPw("pw13");
-		memberDTO.setName("id13");
-		memberDTO.setPhone("010-1111-1313");
-		memberDTO.setEmail("id13@naver.com");
-		
-		int result = memberDAO.memberJoin(memberDTO);
-		
-		assertEquals(1, result);
-	}
-	
 	@Test
+	public void setFileInsertTest() throws Exception{
+		MemberFileDTO memberFileDTO = new MemberFileDTO();
+		memberFileDTO.setId("iu");
+		memberFileDTO.setFileName("f1");
+		memberFileDTO.setOriginName("o1");
+		
+		int result = memberDAO.setFileInsert(memberFileDTO);
+		 
+		assertEquals(1, result);
+
+	}
+	
+	//@Test
 	public void memberLoginTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("iu");
@@ -60,7 +33,8 @@ public class MemberDAOTest extends MyAbstractTest {
 		memberDTO = memberDAO.memberLogin(memberDTO);
 		
 		assertNotNull(memberDTO);
-		
 	}
+	
+	
 
 }

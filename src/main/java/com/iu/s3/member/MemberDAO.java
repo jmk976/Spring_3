@@ -19,6 +19,11 @@ public class MemberDAO {
 	
 	private final String NAMESPACE="com.iu.s3.member.MemberDAO";
 	
+	public int setFileInsert(MemberFileDTO memberFileDTO)throws Exception {
+		return sqlSession.insert(NAMESPACE+".setFileInsert", memberFileDTO);
+		
+	}
+	
 	
 	
 	public int memberUpdate(MemberDTO memberDTO)throws Exception{
@@ -44,6 +49,14 @@ public class MemberDAO {
 		
 		
 		return sqlSession.selectOne(NAMESPACE+".memberLogin", memberDTO);	
+	}
+	
+	public MemberFileDTO  memberLoginFile(MemberDTO memberDTO) throws Exception{
+		 return sqlSession.selectOne(NAMESPACE+".memberLoginFile", memberDTO);
+	}
+	
+	public MemberFileDTO getMemberFile(MemberDTO memberDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+".getMemberFile", memberDTO);
 	}
 
 }
