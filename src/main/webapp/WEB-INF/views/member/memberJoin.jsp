@@ -27,7 +27,8 @@
   <div class="form-group">
     <label for="id">ID</label>
     <input type="text" class="form-control" id="id" name="id" >
-    <h6 id="idResult"></h6>
+    <h6 id="idCheckResult"></h6>
+  
     <!-- id는 6글자 이상 -->
   </div>
   <div class="form-group">
@@ -79,12 +80,12 @@
   <input type="submit" id="btn" value="JOIN" class="btn btn-primary">
 </form></div>
 
-<!-- <script type="text/javascript" src="../resources/js/memberJoin.js">
+ <script type="text/javascript" src="../resources/js/memberJoin.js">
 
 
 
 </script>
-	 -->
+	
 	 
 </body>
 </html>

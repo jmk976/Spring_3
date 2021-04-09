@@ -93,3 +93,28 @@ btn.addEventListener("click", function(){
 	
 });
 
+//************************** id 중복 조회
+
+id.addEventListener("blur",function(){
+	let id= $("#id").val();
+	$.get("./memberIdCheck?id="+id, function(result){
+		
+		result =result.trim();
+		
+		let str="사용가능한 ID입니다.";
+		
+		if(result=='0') {
+			str="중복 ID입니다.";
+		}
+		
+		$("#idCheckResult").html(str);
+		
+		
+		alert(result);
+		alert(result=='0');
+		console.log(result);
+		
+	});
+});
+
+
