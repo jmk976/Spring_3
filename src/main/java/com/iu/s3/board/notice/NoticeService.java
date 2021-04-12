@@ -113,7 +113,7 @@ public class NoticeService implements BoardService{
 			String fileName = fileManager.save("notice", multipartFile, session);
 			boardFileDTO.setFileName(fileName);
 			boardFileDTO.setOriginName(multipartFile.getOriginalFilename());
-			boardFileDTO.setFileNum(file);
+			boardFileDTO.setFileNum(boardDTO.getNum());
 		}
 		// 2. DB에 Insert
 		
