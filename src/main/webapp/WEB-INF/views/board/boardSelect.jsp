@@ -57,6 +57,7 @@
 </div>
 <script type="text/javascript" src="../resources/jquery/comments.js"></script>
 <script type="text/javascript">
+
 const del = document.getElementById("del");
 const frm = document.getElementById("frm");
 

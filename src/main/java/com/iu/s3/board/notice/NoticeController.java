@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s3.board.BoardDTO;
+import com.iu.s3.board.BoardFileDTO;
 import com.iu.s3.util.Pager;
 import com.iu.s3.util.Pager_backup;
 
@@ -24,6 +25,17 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
+	
+	@GetMapping("fileDelete")
+	public ModelAndView setFileDelete(BoardFileDTO boardFileDTO)throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int result = noticeService.setFileDelete(boardFileDTO);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
 	
 	@PostMapping("noticeUpdate")
 	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv)throws Exception{

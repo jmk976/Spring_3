@@ -38,10 +38,8 @@
       	<textarea class="form-control myCheck" rows="5" id="contents" name="contents"></textarea>
     </div>
        	  <input type="button" id="add" value="ADD" class="btn btn-danger">
-       	  <input type="button" id="del" value="DELETE" class="btn btn-danger">
-     			<div id="files">
-     			
-     			</div>
+       	  
+     			<div id="files"></div>
   
      	  <input type="submit" id="btn" value="WRITE" class="btn btn-dark"> 
 	</form>
@@ -60,7 +58,9 @@
 </div>
 
 <!--  <script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
- --><script type="text/javascript" src="../resources/jquery/fileAdd.js"></script>
+ -->
+ 
+ <script type="text/javascript" src="../resources/jquery/fileAdd.js"></script>
 
 </body>
 </html>
