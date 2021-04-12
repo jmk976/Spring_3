@@ -38,7 +38,7 @@ public class NoticeController {
 	}
 	
 	@PostMapping("noticeUpdate")
-	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv)throws Exception{
+	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv, MultipartFile [] files)throws Exception{
 
 		int result= noticeService.setUpdate(boardDTO);
 		

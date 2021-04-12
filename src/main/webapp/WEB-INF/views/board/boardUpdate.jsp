@@ -20,7 +20,7 @@
 
 <div class ="container">
 		<h2>${board} Update form</h2>
-	<form id="frm" action="./${board}Update" method="post">
+	<form id="frm" action="./${board}Update" method="post" enctype="multipart/form-data">
 	
 	  <input type="hidden" name="num" value="${param.num}">
 	
@@ -57,8 +57,8 @@
 <div id="sample">
 	<div class="input-group">
  		 <div class="custom-file">
-    			<input type="file" class="custom-file-input" id="inputGroupFile04" name="files" aria-describedby="inputGroupFileAddon04">
-    		<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+    			<input type="file" class="form-control-file border" id="inputGroupFile04" name="files">
+    		
  		 </div>
   		<div class="input-group-append delete">
    		 <input class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" value="Delete">

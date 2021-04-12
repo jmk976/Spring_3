@@ -4,7 +4,7 @@
 
 
 let count=$("#files").attr("title");
-
+alert(count);
 $("#add").click(function(){
 	
 	
@@ -19,10 +19,7 @@ $("#add").click(function(){
 	}
 });
 
-$("#del").click(function(){
-	$("#files").empty();
-	count =0;
-});
+
 
 //이벤트 전달(위임)
 

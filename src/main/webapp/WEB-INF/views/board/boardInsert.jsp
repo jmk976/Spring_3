@@ -39,16 +39,17 @@
     </div>
        	  <input type="button" id="add" value="ADD" class="btn btn-danger">
        	  
-     			<div id="files"></div>
+     			<div id="files" title="0"></div>
   
-     	  <input type="submit" id="btn" value="WRITE" class="btn btn-dark"> 
+     	  <input type="button" id="btn" value="WRITE" class="btn btn-dark"> 
 	</form>
 </div>
 
 <div id="sample">
 	<div class="input-group">
  		 <div class="custom-file">
-    			<input type="file" class="custom-file-input" id="inputGroupFile04" name="files" aria-describedby="inputGroupFileAddon04">
+    			<input type="file" class="custom-file-input" id="inputGroupFile04" name="files"
+    			name="files" aria-describedby="inputGroupFileAddon04">
     		<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
  		 </div>
   		<div class="input-group-append delete">
