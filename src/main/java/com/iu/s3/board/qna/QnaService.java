@@ -100,9 +100,9 @@ public class QnaService implements BoardService{
 	}
 
 	@Override
-	public int setUpdate(BoardDTO boardDTO) throws Exception {
+	public int setUpdate(BoardDTO boardDTO,MultipartFile[] multipartFiles) throws Exception {
 		// TODO Auto-generated method stub
-		return qnaDAO.setDelete(boardDTO);
+		return qnaDAO.setUpdate(boardDTO);
 	}
 
 	@Override

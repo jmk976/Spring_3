@@ -7,11 +7,11 @@ $("#all").click(function(){
 	let check =$("#all").prop("checked");
 	$(".ch").prop("checked", check);
 	
-});
+    });
 
 
 
-	$(".ch").click(function(){
+$(".ch").click(function(){
 		
 		let result =true;
 		$(".ch").each(function(){

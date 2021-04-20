@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Handles requests for the application home page.
@@ -20,11 +21,19 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@GetMapping("/test")
-	public void test(int num, Model model) {
-		    System.out.println(num);
+	@GetMapping("/testJson")
+	public ModelAndView test (String name) {
+		    //Json, name  은 iu, 나이 30
 		
-			model.addAttribute("str", "Ajax");
+		String json="{\"name\":\""+name+"\", \"age\":30}";  //json 포맷 출력 {} 여러개일때, 
+		//{"name":"iu","age":30}  기대 출력
+        System.out.println(json);	
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("result", json);
+        mv.setViewName("common/ajaxResult");
+        return mv;
+        
+        
 		
 	}
 	

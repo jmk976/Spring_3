@@ -31,7 +31,7 @@ MemberPage
 			 <td>${member.email}</td>
 			</tr>
 			<tr>
-			 <td><img alt="" src="../resources/upload/member/${member.memberFileDTO.fileName}"></td>
+			 <td><img alt="" src="../resources/upload/member2/${member.memberFileDTO.fileName}"></td>
 			 
 			</tr>
 	

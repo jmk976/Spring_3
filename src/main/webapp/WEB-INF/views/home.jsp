@@ -33,9 +33,10 @@
   <body>
   	<c:import url="./template/header.jsp"></c:import>
   
-  	<button  class="b">button</button>
+  	<button  class="b" id="btn1">button</button>
   	<button id="btn" class="b">CLICK</button>
   	<button id="btn2" class="b">CLICK2</button>
+  	<input type="text" id="num">
   	<h1 id="t"> version 5</h1>
   	<ol id="result">
   		<li>A</li>
@@ -47,32 +48,110 @@
   	</select>
   
   <div id="d1">
-   	<div id="d2">	</div>
+   	<div id="d2">
+   		<h3 id = "d3"></h3>
+   		<h3 id = "d4"></h3>
+   	      <!-- title, contents -->
+   		</div>
+   		
+  </div>
+  
+  <div id="excahge">
+  	<h3 id="krw"></h3>
+  	<h3 id="usd"></h3>
+  
   </div>
   
   <div id="map" style="width:500px; height:400px;"></div>
   
 		 
-		 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2af2aaf70ad3220e8e974a4904079bbc">
-		 var container = document.getElementById('map');
-		 var options = { 
-					center: new kakao.maps.LatLng(33.450701, 126.570667), 
-					level: 3 
-				};
-
-				var map = new kakao.maps.Map(container, options); 
-				</script>
+	<!-- 	<script type="text/javascript">
+			</script> -->
+			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2af2aaf70ad3220e8e974a4904079bbc"></script>
+			<script type="text/javascript">
+			
+			getMap(33.450701, 126.570667);
+			
+			function getMap(lat, lng){
 				
-    <script type="text/javascript">
+				var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+				var options = { //지도를 생성할 때 필요한 기본 옵션
+					center: new kakao.maps.LatLng(lat, lng), //지도의 중심좌표.
+					level: 3 //지도의 레벨(확대, 축소 정도)
+				};
+				
+				var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+				
+			}
+			
+			
+			$("#btn1").click(function(){
+				
+				$.get("https://jsonplaceholder.typicode.com/users",function(data){
+				
+				console.log(data);
+				
+				for(index of data){
+					console.log(index.company.name);
+					
+				}
+				
+				//첫번째 유저의 내용중에서 
+				console.log(data[0].address.geo.lat);
+				console.log(data[0].address.geo.lng);
+				let t = parseFloat(data[0].address.geo.lat);
+				let n = parseFloat(data[0].address.geo.lng);
+				getMap(t, n);
+				});
+			});
+			
+			$("#btn").click(function(){
+				$.ajax({
+					type: "GET", 
+					url : "https://api.manana.kr/exchange/price.json",
+					data: {
+						base: "KRW", 
+						price: 1500, 
+						code:"KRW,USD,JPY"
+					},
+					success:function(data){
+						console.log(data);
+						$("#krw").html(data.KRW);
+						$("#usd").html(data.USD);
+					}
+				});
+			});
+		
+				$("#btn2").click(function() {
+					let num = $("#num").val();
+					
+					$.get("https://jsonplaceholder.typicode.com/posts/"+num, function(data) {
+						
+						console.log(data);
+					     $("#d3").html(data.title);
+					     $("#d4").html(data.body);
+						/* data = data.trim();
+						data = JSON.parse(data);
+						alert(data.name); */
+						
+					});
+				});	
+				
+				
+		</script>
+				
+    <!-- <script type="text/javascript">
   	    $("#btn2").click(function(){
   	    	 $.get("./test?num=3", function(data){
   	    		 console.log(data);
   	    		 $("#d2").html(data);
   	    		 
-  	    	 });
+  	    	 }); 
   	    });
+  	    
+  	   
   	
   	  
-    	</script>
+    	</script>-->
   </body>
 </html>

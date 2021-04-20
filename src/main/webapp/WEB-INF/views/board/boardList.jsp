@@ -50,6 +50,7 @@
 		</c:forEach>
 		</tbody>
 	</table>
+	</div>
 	
  <%-- <c:catch>
 	<c:if test="${member.id=='admin'}">
