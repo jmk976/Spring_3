@@ -35,7 +35,8 @@ class MemberService {
 	
 	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception {
 		memberDTO = memberDAO.memberLogin(memberDTO);
-		//MemberFileDTO memberFileDTO = memberDAO.memberLoginFile(memberDTO);
+	    MemberFileDTO memberFileDTO = memberDAO.memberLoginFile(memberDTO);
+		memberDTO.setMemberFileDTO(memberFileDTO);
 		return memberDTO;
 	}
 	

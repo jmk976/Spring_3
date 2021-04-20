@@ -13,7 +13,8 @@ public class MemberDTO {
 	private String email;
 	
 private MemberFileDTO memberFileDTO;
-	public MemberFileDTO getMemberFileDTO() {
+
+ public MemberFileDTO getMemberFileDTO() {
 	return memberFileDTO;
 }
 public void setMemberFileDTO(MemberFileDTO memberFileDTO) {

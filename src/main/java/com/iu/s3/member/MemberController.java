@@ -57,7 +57,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("memberPage")
-	public void memberPage() {
+	public void memberPage() throws Exception {
 		
 	}
 	
